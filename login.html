@@ -1,0 +1,33 @@
+<head>
+    <title>Simple HTML Form with Bulma CSS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  </head>
+  <body>
+    <section class="section level-item has-text-centered">
+        <h5 class="title">SIGN IN</h5>
+    </section> 
+  </body>
+<form method="POST" id="sign-in-form">
+    <div class="field ml-6 mr-6">
+      <label class="label">Email</label>
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <input type="email" name="email" class="input is-medium" id="email" required>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="field ml-6 mr-6">
+      <label class="label">Password</label>
+      <div class="field-body">
+        <div class="field">
+          <p class="control">
+            <input type="email" name="email" class="input is-medium" id="email" required>
+          </p>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="button is-medium is-primary level-item has-text-centered ml-6 mr-6">Sign In</button>
+  </form>
