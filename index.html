@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>East Mountain Monsters Project</title>
 </head>
@@ -68,10 +69,17 @@
             <div class = "control">
                <input class = "input is-hovered input is-fullwidth" type = "text" placeholder = "Search for Tutorials">
             </div>
-            <div class = "control">
-               <a class = "button is-info">Search</a>
-            </div>
-         </div>
+            <!-- <div class="level-left"> ***ICONS NOT WORKING***
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-reply"></i></span>
+                </a>
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-retweet"></i></span>
+                </a>
+                <a class="level-item">
+                  <span class="icon is-small"><i class="fas fa-heart"></i></span>
+                </a> -->
+              </div>
  <!-- end of search Bar -->
       
    <!-- Login / Sign Up (Use Firebase API) -->
@@ -99,6 +107,7 @@
             <div class="card-image">
                 <figure class="image is-3by2">
                     <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                    <i class="fa-thin fa-arrows-retweet"></i>
                 </figure>
              </div>
         </div>
@@ -190,13 +199,25 @@
             
 
     <!-- Category Section (Use Youtube API) -->
-
+    <section class="section level-item has-text-centered">
+        <h3 class="title">COURSES</h3>
+    </section>
+        <div class="buttons level-item has-text-centered buttons are-medium">
+            <button class="button is-primary is-light">HTML</button>
+            <button class="button is-link is-light">CSS</button>
+            <button class="button is-info is-light">JAVASCRIPT</button>
+            <button class="button is-success is-light">PHYTON</button>
+            <button class="button is-warning is-light">REACT</button>
+            <button class="button is-danger is-light">AWS</button>
+        </div>
+    
     <!-- Notes (Local Storage) Section -->
 
     <!-- Recommended Videos Section (Use Youtube API) -->
 
- <div class="RecommendedVideos">
-     <h1>Recommended Videos</h1>
+    <section class="section level-item has-text-centered">
+        <h3 class="title">RECOMMENDED VIDEOS</h3>
+    </section>
      <div class="columns m-3">
         <div class="column">
           First video
