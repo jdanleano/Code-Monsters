@@ -28,7 +28,7 @@
         </div>
       
         <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
+          <div class="navbar-start" id="navBarSection">
             <a class="navbar-item">
               Home
             </a>
@@ -77,24 +77,24 @@
  <!-- end of search Bar -->
       
    <!-- Login / Sign Up (Use Firebase API) -->
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div class="buttons">
-                <a class="button is-primary" href="./signup.html">
-                  <strong>Sign up</strong>
-                </a>
-                <a class="button is-light" href="./login.html">
-                  Log in
-                </a>
-              </div>
-            </div>
-          </div>
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          <a class="button is-primary" id="btn-show-signup-modal" data-target="sign-up-modal">
+          <strong>Sign up</strong>
+          </a>
+          <a class="button" id="btn-show-login-modal" data-target="login-modal">
+            Log in
+          </a>
         </div>
-      </nav>
+      </div>
+    </div>
+  </div>
+</nav>
 <!-- End of Nav Bar -->
   
 <!-- NOW PLAYING -->
-    <section class="section level-item has-text-centered">
+    <section class="columns is-10 section level-item has-text-centered">
     <h3 class="title">NOW PLAYING</h3>
     </section>
         <div class="card ml-6 mr-6 mt-0 mb-0">
@@ -200,20 +200,19 @@
                 </p>
               </div>
             </div>
-          </article>
-            
+          </article>   
 
     <!-- Category Section (Use Youtube API) -->
     <section class="section level-item has-text-centered">
         <h3 class="title">COURSES</h3>
     </section>
-        <div class="buttons level-item has-text-centered buttons are-medium">
-            <button class="button is-primary is-light">HTML</button>
-            <button class="button is-link is-light">CSS</button>
+        <div class="buttons level-item has-text-centered buttons are-medium is-rounded">
+            <button class="button is-primary is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <button class="button is-link is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
             <button class="button is-info is-light">JAVASCRIPT</button>
-            <button class="button is-success is-light">PHYTON</button>
-            <button class="button is-warning is-light">REACT</button>
-            <button class="button is-danger is-light">AWS</button>
+            <button class="button is-success is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PHYTON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <button class="button is-warning is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REACT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+            <button class="button is-danger is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AWS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
         </div>
     
     <!-- Notes (Local Storage) Section -->
@@ -265,6 +264,138 @@
           </div>
         </div>
       </div>
+
+      <!-- MODAL FOR SIGN UP PAGE -->
+      <div id="sign-up-modal" class = "modal">
+        <div class = "modal-background"></div>
+        <div class = "modal-content">
+           <div class = "box">
+                 <div class = "media-content">
+                  <div class="columns">
+                    <div class="column">
+                      <form method="POST" class="box p-5">
+                          <label class="is-block mb-4">
+                              <span class="is-block mb-2">Username</span>
+                              <input
+                                name="username"
+                                type="username"
+                                class="input"
+                                minlength="6"
+                                placeholder="(must be 6+ chars)"
+                                required
+                              />
+                            </label>
+              
+                          <label class="is-block mb-4">
+                              <span class="is-block mb-2">Email address</span>
+                              <input
+                              required
+                              type="email"
+                              class="input"
+                              placeholder="eastmountainmonsters@gmail.com"
+                           />
+                          </label>
+                
+                          <label class="is-block mb-4">
+                              <span class="is-block mb-2">Password</span>
+                              <input
+                              name="password"
+                              type="password"
+                              class="input"
+                              minlength="10"
+                              placeholder="(must be 10+ chars)"
+                              required
+                              />
+                        </label>
+                
+                        <div class="mb-4">
+                          <label>
+                            <input type="checkbox" name="tos" value="yes" required />
+                            <span>I agree with the Terms and Conditions</span>
+                          </label>
+                        </div>
+                
+                        <div class="mb-4">
+                          <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Sign Up</button>
+                        </div>
+                
+                        <div>
+                          <div class="is-size-7 has-text-right">
+                            by
+                            <a
+                              href="https://eastmountainmonsters.com/start"
+                              class="has-text-dark"
+                              target="_blank"
+                              >EastMountainMonsters</a
+                            >
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>              
+                 </div>
+              </article>
+           </div>
+        </div>
+        <button class = "modal-close is-large" id="signup-modal-close" aria-label = "close"></button>
+     </div>
+
+
+      <!-- MODAL FOR LOG IN PAGE -->
+      <div id="login-modal" class = "modal">
+        <div class = "modal-background"></div>
+        <div class = "modal-content">
+           <div class = "box">
+                 <div class = "media-content">
+                      <div class="columns">
+                        <div class="column">
+                          <form method="POST" class="box p-5">
+                            <label class="is-block mb-4">
+                              <span class="is-block mb-2">Email address</span>
+                              <input
+                                required
+                                type="email"
+                                class="input"
+                                placeholder="eastmountainmonsters@gmail.com"
+                              />
+                            </label>
+                    
+                            <label class="is-block mb-4">
+                              <span class="is-block mb-2">Password</span>
+                              <input
+                                name="password"
+                                type="password"
+                                class="input"
+                                minlength="10"
+                                placeholder="(must be 10+ chars)"
+                                required
+                              />
+                            </label>
+                    
+                            <div class="mb-4">
+                              <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Log In</button>
+                            </div>
+                    
+                            <div>
+                              <div class="is-size-7 has-text-right">
+                                by
+                                <a
+                                  href="https://eastmountainmonsters.com/start"
+                                  class="has-text-dark"
+                                  target="_blank"
+                                  >EastMountainMonsters</a
+                                >
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>                 
+                 </div>
+              </article>
+           </div>
+        </div>
+        <button class = "modal-close is-large" id="login-modal-close" aria-label="close"></button>
+     </div>
 
     <!-- Recently Viewed Videos Section (Local Storage) -->
 
