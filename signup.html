@@ -1,0 +1,70 @@
+<head>
+    <title>Simple Signup Form with Bulma CSS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  </head>
+    <div class="container mt-6 pt-6">
+    <div class="columns is-justify-content-center">
+      <div class="column is-6-tablet is-5-desktop is-4-widescreen is-3-fullh">
+        <form method="POST" class="box p-5">
+            <label class="is-block mb-4">
+                <span class="is-block mb-2">Username</span>
+                <input
+                  name="username"
+                  type="username"
+                  class="input"
+                  minlength="6"
+                  placeholder="(must be 6+ chars)"
+                  required
+                />
+              </label>
+
+            <label class="is-block mb-4">
+                <span class="is-block mb-2">Email address</span>
+                <input
+                required
+                type="email"
+                class="input"
+                placeholder="eastmountainmonsters@gmail.com"
+             />
+            </label>
+  
+            <label class="is-block mb-4">
+                <span class="is-block mb-2">Password</span>
+                <input
+                name="password"
+                type="password"
+                class="input"
+                minlength="10"
+                placeholder="(must be 10+ chars)"
+                required
+                />
+          </label>
+  
+          <div class="mb-4">
+            <label>
+              <input type="checkbox" name="tos" value="yes" required />
+              <span>I agree with the Terms and Conditions</span>
+            </label>
+          </div>
+  
+          <div class="mb-4">
+            <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Sign Up</button>
+          </div>
+  
+          <div>
+            <div class="is-size-7 has-text-right">
+              by
+              <a
+                href="https://eastmountainmonsters.com/start"
+                class="has-text-dark"
+                target="_blank"
+                >EastMountainMonsters</a
+              >
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
