@@ -57,13 +57,3 @@ btnLoginCloseModal.onclick = function(e){
   htmlEl.classList.remove("is-clipped");
   btnLoginCloseModal.parentElement.classList.remove("is-active")
 }
-
-
-var baloney = "woof";
-var malarkey = "42";
-var quack = (baloney + malarkey);
-
-var test = "blah";
-var test1 = "blahblah"
-var test3 = "blahblahblah"
-
