@@ -1,8 +1,14 @@
 // Access Youtube API to submit searches for content we want to show (ex. Javascript videos with a certain rating)
 // Added sample fetch request for Youtube videos with search "javascript tutorials english". API key is also valid, so we can keep using the API key at the end.
 fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=javascript%20tutorial%20english&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
-.then((data)=>{
-    console.log (data.json())
+.then((result)=>{
+  console.log (result.json())
+}).then((data)=>{
+  console.log(data)
+  var videos = data.items
+  for(video of videos) {
+    document.write(video.snippet.title)
+  }
 })
 
 
