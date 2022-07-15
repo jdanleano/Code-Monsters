@@ -13,6 +13,7 @@ fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=
 
 // Access Youtube API for User searches
 
+
 // Implement Firebase API to allow users to chat and potentially handling log in for site
 
 
@@ -58,6 +59,11 @@ btnLoginCloseModal.onclick = function(e){
 }
 
 
+var baloney = "woof";
+var malarkey = "42";
+var quack = (baloney + malarkey);
+
 var test = "blah";
 var test1 = "blahblah"
 var test3 = "blahblahblah"
+
