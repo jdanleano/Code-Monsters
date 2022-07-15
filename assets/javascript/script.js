@@ -4,11 +4,11 @@ fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=
 .then((data)=>{
     console.log (data.json())
 })
-
+var testVar = "Hello This is a test"
 
 // Access Youtube API for User searches
 
-
+console.log(testVar)
 // Implement Firebase API to allow users to chat and potentially handling log in for site
 
 
@@ -22,6 +22,7 @@ fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=
 
 
 // MODAL JS for SIGN UP and LOG IN
+
 
 let htmlEl = document.getElementsByTagName('html')[0];
 const btnShowSignupModal = document.getElementById("btn-show-signup-modal")
