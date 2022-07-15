@@ -3,4 +3,5 @@
 
 #search-text {
     width: 25vw;
+    max-width: 500px;
 }
