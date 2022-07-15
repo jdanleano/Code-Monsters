@@ -1,2 +1,10 @@
-/* Use Tailwind for CSS */
+/* Use BULMA for CSS */
+#nav-bar-section {
+  margin-right: 10px;  
+}
+
+#my-apple {
+    min-width: 100%;
+}
+
 /* Look into responsive design */
