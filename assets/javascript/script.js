@@ -10,11 +10,9 @@ fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=
     document.write(video.snippet.title)
   }
 })
-var testVar = "Hello This is a test"
 
 // Access Youtube API for User searches
 
-console.log(testVar)
 // Implement Firebase API to allow users to chat and potentially handling log in for site
 
 
@@ -59,3 +57,7 @@ btnLoginCloseModal.onclick = function(e){
   btnLoginCloseModal.parentElement.classList.remove("is-active")
 }
 
+
+var test = "blah";
+var test1 = "blahblah"
+var test3 = "blahblahblah"
