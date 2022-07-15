@@ -5,3 +5,15 @@
     width: 25vw;
     max-width: 500px;
 }
+
+.tab-panel{
+  display: flex;
+  height: 50px;
+  background: transparent;
+}
+
+.tab-panel a {
+  margin-right: 16px;
+}
+
+/* Look into responsive design */
