@@ -10,19 +10,29 @@
 //     document.write(video.snippet.title)
 //   }
 // })
+
 var searchButton = document.querySelector("#search-button")
 var myInput = document.querySelector("#search-input");
 var myYoutubeCont = document.querySelector("#youtube-results");
 var myVimeoCont = document.querySelector("#vimeo-results");
 var myResultsContainer = document.querySelector("#video-event-delegate");
+var myEmbedContainer = document.querySelector("#embed-container");
 
+// Format Embed for vimeo
+function vimeoEmbed(str){
+  var myFirstSplit = str.split('src="');
+  var mySecondSplit = myFirstSplit[1].split('"></iframe>');
+  console.log(mySecondSplit[0]);
+  return mySecondSplit[0];
+}
 
 // Takes in an image, name, description, link and HTML container to store results from API calls
-function populateData(image, name, link, cont) {
+function populateData(image, name, link, embed, cont) {
   var myTitleImage = document.createElement("img");
   myTitleImage.classList.add("img-size");
   var nameElement = document.createElement("h2");
   var myLink = document.createElement("a");
+  var myEmbed = document.createElement("iframe");
   var myContainer = document.createElement("div");
   myContainer.classList.add("video-block");
 
@@ -30,24 +40,26 @@ function populateData(image, name, link, cont) {
   nameElement.textContent = name;
   myLink.setAttribute("href", link);
   myLink.textContent = "Watch";
+  myEmbed.setAttribute("src", vimeoEmbed(embed));
 
   myContainer.appendChild(myTitleImage);
   myContainer.appendChild(nameElement);
   myContainer.appendChild(myLink);
+  myEmbedContainer.appendChild(myEmbed);
   cont.appendChild(myContainer);
 }
 
 // Access Youtube API for User searches
 function callYoutubeAPI(query) {
-  fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=" + query + "&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
-    .then((result) => {
-      return result.json();
-    }).then((data) => {
-      console.log(data)
-      for (var i = 0; i < 5; i++) {
-        populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), myYoutubeCont)
-      }
-    })
+  // fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=" + query + "&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
+  //   .then((result) => {
+  //     return result.json();
+  //   }).then((data) => {
+  //     console.log(data)
+  //     for (var i = 0; i < 5; i++) {
+  //       populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), myYoutubeCont)
+  //     }
+  //   })
 }
 
 
@@ -61,18 +73,47 @@ function callVimeoAPI(query) {
     .then(function (data) {
       console.log(data);
       for (var i = 0; i < 5; i++) {
-        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, myVimeoCont)
+        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, data.data[i].embed.html, myVimeoCont)
       }
     })
+}
+
+// format myInput for apis
+function formatQuery(query){
+  var mySpecCharsArray = [
+    {a: '!', b: '%21'},
+    {a: '"', b: '%22'},
+    {a: '#', b: '%23'},
+    {a: '$', b: '%24'},
+    {a: ' ', b: '%20'},
+    {a: '&', b: '%26'},
+    {a: '‘', b: '%27'},
+    {a: '*', b: '%2A'},
+    {a: '+', b: '%2B'},
+    {a: ',', b: '%2C'},
+    {a: '/', b: '%2F'},
+    {a: '=', b: '%3D'},
+    {a: '?', b: '%3F'},
+  ]
+  var tempString;
+  var str;
+  str = query.replaceAll('%', '%25');
+  tempString = str;
+
+    for(var i = 0; i < mySpecCharsArray.length; i++){
+      str = tempString.replaceAll(mySpecCharsArray[i].a, mySpecCharsArray[i].b);
+      tempString = str;
+    }
+    return tempString;
 }
 
 
 // findVideos calls both youtube and vimeo apis while converting the input to something both apis can use.
 function findVideos() {
-  myQuery = myInput.value;
-  callVimeoAPI(myQuery);
-  var str = myQuery.replaceAll(' ', '%20');
-  callYoutubeAPI(str);
+  var myQuery = myInput.value;
+  var myFormattedQuery = formatQuery(myQuery);
+  callVimeoAPI(myFormattedQuery);
+  callYoutubeAPI(myFormattedQuery);
 }
 
 // Add Event Delegate for video results
