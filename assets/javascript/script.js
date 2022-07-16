@@ -17,23 +17,21 @@ var myVimeoCont = document.querySelector("#vimeo-results");
 
 
 // Takes in an image, name, description, link and HTML container to store results from API calls
-function populateData(image, name, desc, link, cont){
+function populateData(image, name, link, cont){
   var myTitleImage = document.createElement("img");
+  myTitleImage.classList.add("img-size");
   var nameElement = document.createElement("h2");
-  var descElement = document.createElement("p");
   var myLink = document.createElement("a");
   var myContainer = document.createElement("div");
   myContainer.classList.add("video-block");
 
   myTitleImage.setAttribute("src", image);
   nameElement.textContent = name;
-  descElement.textContent = desc;
   myLink.setAttribute("href", link);
   myLink.textContent = "Watch";
   
   myContainer.appendChild(myTitleImage);
   myContainer.appendChild(nameElement);
-  myContainer.appendChild(descElement);
   myContainer.appendChild(myLink);
   cont.appendChild(myContainer);
 }
@@ -46,7 +44,7 @@ function callYoutubeAPI(query){
 }).then((data)=>{
   console.log(data)
   for(var i = 0; i < 5; i++){ 
-    populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, data.items[i].snippet.description, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), myYoutubeCont)       
+    populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), myYoutubeCont)       
   }
 })
 }
@@ -54,7 +52,7 @@ function callYoutubeAPI(query){
 
 // calls the Vimeo API and adds relevant data to the site
 function callVimeoAPI(query){
-  fetch("https://api.vimeo.com/videos?query=" + query + "&page=1&perPage=10&access_token=0ff146aa1ed83ea925ee9c0cd2b088bb", {
+  fetch("https://api.vimeo.com/videos?query=" + query + "&total=10&page=1&per_page=5&access_token=0ff146aa1ed83ea925ee9c0cd2b088bb", {
   })
   .then(function(response){
       return response.json();
@@ -62,7 +60,7 @@ function callVimeoAPI(query){
   .then(function(data){
       console.log(data);
       for(var i = 0; i < 5; i++){
-        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].description, data.data[i].link, myVimeoCont)       
+        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, myVimeoCont)       
       }
     })
   }
