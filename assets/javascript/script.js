@@ -27,7 +27,7 @@ function vimeoEmbed(str) {
 }
 
 // Takes in an image, name, description, link and HTML container to store results from API calls
-function populateData(image, name, link, embed, cont) {
+function populateData(image, name, link, vimeo, embed, cont) {
   var myTitleImage = document.createElement("img");
   myTitleImage.classList.add("img-size");
   var nameElement = document.createElement("h2");
@@ -40,7 +40,12 @@ function populateData(image, name, link, embed, cont) {
   nameElement.textContent = name;
   myLink.setAttribute("href", link);
   myLink.textContent = "Watch";
-  myEmbed.setAttribute("src", vimeoEmbed(embed));
+  if (vimeo) {
+    myEmbed.setAttribute("src", vimeoEmbed(embed));
+  } else {
+    myEmbed.setAttribute("src", embed);
+  }
+
 
   myContainer.appendChild(myTitleImage);
   myContainer.appendChild(nameElement);
@@ -51,15 +56,15 @@ function populateData(image, name, link, embed, cont) {
 
 // Access Youtube API for User searches
 function callYoutubeAPI(query) {
-  // fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=" + query + "&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
-  //   .then((result) => {
-  //     return result.json();
-  //   }).then((data) => {
-  //     console.log(data)
-  //     for (var i = 0; i < 5; i++) {
-  //       populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), myYoutubeCont)
-  //     }
-  //   })
+  fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=" + query + "&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
+    .then((result) => {
+      return result.json();
+    }).then((data) => {
+      console.log(data)
+      for (var i = 0; i < 5; i++) {
+        populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), false, ("https://www.youtube.com/embed/" + data.items[i].id.videoId), myYoutubeCont)
+      }
+    })
 }
 
 
@@ -73,7 +78,7 @@ function callVimeoAPI(query) {
     .then(function (data) {
       console.log(data);
       for (var i = 0; i < 5; i++) {
-        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, data.data[i].embed.html, myVimeoCont)
+        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
       }
     })
 }
@@ -112,7 +117,7 @@ function formatQuery(query) {
 function findVideos() {
   var myQuery = myInput.value;
   var myFormattedQuery = formatQuery(myQuery);
-  callVimeoAPI(myFormattedQuery);
+  // callVimeoAPI(myFormattedQuery);
   callYoutubeAPI(myFormattedQuery);
 }
 
