@@ -19,7 +19,7 @@ var myResultsContainer = document.querySelector("#video-event-delegate");
 var myEmbedContainer = document.querySelector("#embed-container");
 
 // Format Embed for vimeo
-function vimeoEmbed(str){
+function vimeoEmbed(str) {
   var myFirstSplit = str.split('src="');
   var mySecondSplit = myFirstSplit[1].split('"></iframe>');
   console.log(mySecondSplit[0]);
@@ -79,32 +79,32 @@ function callVimeoAPI(query) {
 }
 
 // format myInput for apis
-function formatQuery(query){
+function formatQuery(query) {
   var mySpecCharsArray = [
-    {a: '!', b: '%21'},
-    {a: '"', b: '%22'},
-    {a: '#', b: '%23'},
-    {a: '$', b: '%24'},
-    {a: ' ', b: '%20'},
-    {a: '&', b: '%26'},
-    {a: '‘', b: '%27'},
-    {a: '*', b: '%2A'},
-    {a: '+', b: '%2B'},
-    {a: ',', b: '%2C'},
-    {a: '/', b: '%2F'},
-    {a: '=', b: '%3D'},
-    {a: '?', b: '%3F'},
+    { a: '!', b: '%21' },
+    { a: '"', b: '%22' },
+    { a: '#', b: '%23' },
+    { a: '$', b: '%24' },
+    { a: ' ', b: '%20' },
+    { a: '&', b: '%26' },
+    { a: '‘', b: '%27' },
+    { a: '*', b: '%2A' },
+    { a: '+', b: '%2B' },
+    { a: ',', b: '%2C' },
+    { a: '/', b: '%2F' },
+    { a: '=', b: '%3D' },
+    { a: '?', b: '%3F' },
   ]
   var tempString;
   var str;
   str = query.replaceAll('%', '%25');
   tempString = str;
 
-    for(var i = 0; i < mySpecCharsArray.length; i++){
-      str = tempString.replaceAll(mySpecCharsArray[i].a, mySpecCharsArray[i].b);
-      tempString = str;
-    }
-    return tempString;
+  for (var i = 0; i < mySpecCharsArray.length; i++) {
+    str = tempString.replaceAll(mySpecCharsArray[i].a, mySpecCharsArray[i].b);
+    tempString = str;
+  }
+  return tempString;
 }
 
 
@@ -133,8 +133,16 @@ myResultsContainer.onclick = function (event) {
 // Add Event Delegates or listeners for the for each section of videos
 
 
-// Local Storage for Favorites, Recently Viewed, Notes, Chat History
-
+// Local Storage for Favorites, Recently Viewed, Notes,
+//Store four recent videos in local storage
+//Check whether local storage exists or not 
+function isLocalStorage() {
+  if (localStorage.getItem("recentlyViewed") !== null) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // MODAL JS for SIGN UP and LOG IN
 
