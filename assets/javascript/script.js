@@ -11,6 +11,11 @@
 //   }
 // })
 
+var myInput = document.querySelector("#search-input");
+var myYoutubeCont = document.querySelector("#youtube-results");
+var myVimeoCont = document.querySelector("#vimeo-results");
+
+
 // Takes in an image, name, description, link and HTML container to store results from API calls
 function populateData(image, name, desc, link, cont){
   var myTitleImage = document.createElement("img");
@@ -34,9 +39,17 @@ function populateData(image, name, desc, link, cont){
 }
 
 // Access Youtube API for User searches
-// function callYoutubeAPI(){
-  
-// }
+function callYoutubeAPI(){
+  fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=javascript%20tutorial%20english&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
+.then((result)=>{
+  return result.json();
+}).then((data)=>{
+  console.log(data)
+  for(var i = 0; i < 5; i++){ 
+    populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, data.items[i].snippet.description, data.items[i].id.videoId, myYoutubeCont)       
+  }
+})
+}
 
 
 // calls the Vimeo API and adds relevant data to the site
@@ -48,8 +61,8 @@ function callVimeoAPI(){
   })
   .then(function(data){
       console.log(data);
-      for(var i = 0; i < 10; i++){
-        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].description, data.data[i].link, myResults)       
+      for(var i = 0; i < 5; i++){
+        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].description, data.data[i].link, myVimeoCont)       
       }
     })
   }
@@ -97,3 +110,11 @@ btnLoginCloseModal.onclick = function(e){
   htmlEl.classList.remove("is-clipped");
   btnLoginCloseModal.parentElement.classList.remove("is-active")
 }
+
+myInput.addEventListener("keypress", function (event) {
+
+  if (event.key === "Enter") {
+    event.preventDefault();
+    callYoutubeAPI();
+  }
+})
