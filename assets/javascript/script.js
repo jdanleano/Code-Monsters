@@ -14,6 +14,7 @@
 var myInput = document.querySelector("#search-input");
 var myYoutubeCont = document.querySelector("#youtube-results");
 var myVimeoCont = document.querySelector("#vimeo-results");
+var myResultsContainer = document.querySelector("#video-event-delegate");
 
 
 // Takes in an image, name, description, link and HTML container to store results from API calls
@@ -65,11 +66,22 @@ function callVimeoAPI(query){
     })
   }
 
+
+// findVideos calls both youtube and vimeo apis while converting the input to something both apis can use.
 function findVideos(myQuery){
   callVimeoAPI(myQuery);
   var str = myQuery.replaceAll(' ', '%20');
   callYoutubeAPI(str);
 } 
+
+// Add Event Delegate for video results
+myResultsContainer.onclick = function(event) {
+  var videoResult = event.target;
+
+  if(videoResult.classList.contains("video-block")){
+    console.log("it's working!!!!");
+  }
+}
 // Implement Firebase API to allow users to chat and potentially handling log in for site
 
 
@@ -114,6 +126,7 @@ btnLoginCloseModal.onclick = function(e){
   btnLoginCloseModal.parentElement.classList.remove("is-active")
 }
 
+// Allows the user to press ENTER after typing their search query to execute the search.
 myInput.addEventListener("keypress", function (event) {
 
   if (event.key === "Enter") {
@@ -121,3 +134,5 @@ myInput.addEventListener("keypress", function (event) {
     findVideos(myInput.value);
   }
 })
+
+// Solomon please add eventlistener to submit button
