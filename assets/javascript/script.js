@@ -10,7 +10,7 @@
 //     document.write(video.snippet.title)
 //   }
 // })
-
+var searchButton = document.querySelector("#search-button")
 var myInput = document.querySelector("#search-input");
 var myYoutubeCont = document.querySelector("#youtube-results");
 var myVimeoCont = document.querySelector("#vimeo-results");
@@ -18,7 +18,7 @@ var myResultsContainer = document.querySelector("#video-event-delegate");
 
 
 // Takes in an image, name, description, link and HTML container to store results from API calls
-function populateData(image, name, link, cont){
+function populateData(image, name, link, cont) {
   var myTitleImage = document.createElement("img");
   myTitleImage.classList.add("img-size");
   var nameElement = document.createElement("h2");
@@ -30,7 +30,7 @@ function populateData(image, name, link, cont){
   nameElement.textContent = name;
   myLink.setAttribute("href", link);
   myLink.textContent = "Watch";
-  
+
   myContainer.appendChild(myTitleImage);
   myContainer.appendChild(nameElement);
   myContainer.appendChild(myLink);
@@ -38,47 +38,48 @@ function populateData(image, name, link, cont){
 }
 
 // Access Youtube API for User searches
-function callYoutubeAPI(query){
+function callYoutubeAPI(query) {
   fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=" + query + "&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
-.then((result)=>{
-  return result.json();
-}).then((data)=>{
-  console.log(data)
-  for(var i = 0; i < 5; i++){ 
-    populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), myYoutubeCont)       
-  }
-})
+    .then((result) => {
+      return result.json();
+    }).then((data) => {
+      console.log(data)
+      for (var i = 0; i < 5; i++) {
+        populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), myYoutubeCont)
+      }
+    })
 }
 
 
 // calls the Vimeo API and adds relevant data to the site
-function callVimeoAPI(query){
+function callVimeoAPI(query) {
   fetch("https://api.vimeo.com/videos?query=" + query + "&total=10&page=1&per_page=5&access_token=0ff146aa1ed83ea925ee9c0cd2b088bb", {
   })
-  .then(function(response){
+    .then(function (response) {
       return response.json();
-  })
-  .then(function(data){
+    })
+    .then(function (data) {
       console.log(data);
-      for(var i = 0; i < 5; i++){
-        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, myVimeoCont)       
+      for (var i = 0; i < 5; i++) {
+        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, myVimeoCont)
       }
     })
-  }
+}
 
 
 // findVideos calls both youtube and vimeo apis while converting the input to something both apis can use.
-function findVideos(myQuery){
+function findVideos() {
+  myQuery = myInput.value;
   callVimeoAPI(myQuery);
   var str = myQuery.replaceAll(' ', '%20');
   callYoutubeAPI(str);
-} 
+}
 
 // Add Event Delegate for video results
-myResultsContainer.onclick = function(event) {
+myResultsContainer.onclick = function (event) {
   var videoResult = event.target;
 
-  if(videoResult.classList.contains("video-block")){
+  if (videoResult.classList.contains("video-block")) {
     console.log("it's working!!!!");
   }
 }
@@ -102,26 +103,26 @@ const btnShowSignupModal = document.getElementById("btn-show-signup-modal")
 let btnSignupCloseModal = document.getElementById("signup-modal-close")
 let btnLoginCloseModal = document.getElementById("login-modal-close")
 
-btnShowSignupModal.onclick = function(e){
+btnShowSignupModal.onclick = function (e) {
   const target = btnShowSignupModal.dataset.target;
   htmlEl.classList.add("is-clipped");
   document.getElementById(target).classList.add("is-active");
 }
 
-btnSignupCloseModal.onclick = function(e){
+btnSignupCloseModal.onclick = function (e) {
   htmlEl.classList.remove("is-clipped");
   btnSignupCloseModal.parentElement.classList.remove("is-active")
 }
 
 const btnShowLoginModal = document.getElementById("btn-show-login-modal")
 
-btnShowLoginModal.onclick = function(e){
+btnShowLoginModal.onclick = function (e) {
   const target = btnShowLoginModal.dataset.target;
   htmlEl.classList.add("is-clipped");
   document.getElementById(target).classList.add("is-active");
 }
 
-btnLoginCloseModal.onclick = function(e){
+btnLoginCloseModal.onclick = function (e) {
   htmlEl.classList.remove("is-clipped");
   btnLoginCloseModal.parentElement.classList.remove("is-active")
 }
@@ -131,8 +132,9 @@ myInput.addEventListener("keypress", function (event) {
 
   if (event.key === "Enter") {
     event.preventDefault();
-    findVideos(myInput.value);
+    findVideos();
   }
 })
 
 // Solomon please add eventlistener to submit button
+searchButton.addEventListener("click", findVideos)
