@@ -11,10 +11,36 @@
 //   }
 // })
 
+// Takes in an image, name, description, link and HTML container to store results from API calls
+function populateData(image, name, desc, link, cont){
+  var myTitleImage = document.createElement("img");
+  var nameElement = document.createElement("h2");
+  var descElement = document.createElement("p");
+  var myLink = document.createElement("a");
+  var myContainer = document.createElement("div");
+  myContainer.classList.add("video-block");
+
+  myTitleImage.setAttribute("src", image);
+  nameElement.textContent = name;
+  descElement.textContent = desc;
+  myLink.setAttribute("href", link);
+  myLink.textContent = "Watch";
+  
+  myContainer.appendChild(myTitleImage);
+  myContainer.appendChild(nameElement);
+  myContainer.appendChild(descElement);
+  myContainer.appendChild(myLink);
+  cont.appendChild(myContainer);
+}
+
 // Access Youtube API for User searches
+// function callYoutubeAPI(){
+  
+// }
 
+
+// calls the Vimeo API and adds relevant data to the site
 function callVimeoAPI(){
-
   fetch("https://api.vimeo.com/videos?query=" + myQuery + "&page=1&perPage=10&access_token=0ff146aa1ed83ea925ee9c0cd2b088bb", {
   })
   .then(function(response){
@@ -22,7 +48,10 @@ function callVimeoAPI(){
   })
   .then(function(data){
       console.log(data);
-  })
+      for(var i = 0; i < 10; i++){
+        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].description, data.data[i].link, myResults)       
+      }
+    })
   }
 
 // Implement Firebase API to allow users to chat and potentially handling log in for site
