@@ -16,4 +16,20 @@
   margin-right: 16px;
 }
 
-/* Look into responsive design */
+#youtube-results, #vimeo-results{
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+}
+
+.video-block{
+  display:flex;
+  align-items: center;
+  padding: 5px;
+  flex-direction: column;
+}
+
+.img-size{
+  width: 500px;
+  height: calc(width * 1.78);
+}
