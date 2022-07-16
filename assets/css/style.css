@@ -2,11 +2,11 @@
 /* Look into responsive design */
 
 #search-text {
-    width: 25vw;
-    max-width: 500px;
+  width: 25vw;
+  max-width: 500px;
 }
 
-.tab-panel{
+.tab-panel {
   display: flex;
   height: 50px;
   background: transparent;
@@ -16,25 +16,25 @@
   margin-right: 16px;
 }
 
-#youtube-results, #vimeo-results{
+/* #youtube-results, #vimeo-results{
   display: flex;
   margin: 5px;
   padding: 5px;
-}
+} */
 
-.video-block{
-  display:flex;
+/* .video-block {
+  display: flex;
   align-items: center;
   padding: 5px;
   flex-direction: column;
-}
+} */
 
-.img-size{
+.img-size {
   width: 500px;
   height: calc(width * 1.78);
   pointer-events: none;
 }
 
-h2{
+h2 {
   pointer-events: none;
 }

@@ -34,7 +34,7 @@ function populateData(image, name, link, vimeo, embed, cont) {
   var myLink = document.createElement("a");
   var myEmbed = document.createElement("iframe");
   var myContainer = document.createElement("div");
-  myContainer.classList.add("video-block");
+  myContainer.classList.add("video-block", "is-mobile", "is-tablet");
 
   myTitleImage.setAttribute("src", image);
   nameElement.textContent = name;
@@ -51,6 +51,7 @@ function populateData(image, name, link, vimeo, embed, cont) {
   myContainer.appendChild(nameElement);
   myContainer.appendChild(myLink);
   myEmbedContainer.appendChild(myEmbed);
+  cont.classList.add("is-mobile")
   cont.appendChild(myContainer);
 }
 
