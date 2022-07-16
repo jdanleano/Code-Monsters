@@ -2,108 +2,133 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>East Mountain Monsters Project</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>East Mountain Monsters Project</title>
 </head>
 
 <body>
-    
-    <!-- Navigation Bar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <a class="navbar-item" href="https://bulma.io">
-            <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://bulma.io">
+        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start" id="navBarSection">
+        <a class="navbar-item">
+          Home
+        </a>
+
+        <a class="navbar-item">
+          Courses
+        </a>
+
+        <a class="navbar-item">
+          Community
+        </a>
+
+        <a class="navbar-item">
+          Notes
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More
           </a>
-      
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
+
+          <div class="navbar-dropdown">
+            <a class="navbar-item">
+              About Us
+            </a>
+            <a class="navbar-item" href="./contactus.html">
+              Contact Us
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Report an issue
+            </a>
+          </div>
         </div>
-      
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start" id="navBarSection">
-            <a class="navbar-item">
-              Home
-            </a>
-      
-            <a class="navbar-item">
-              Courses
-            </a>
+      </div>
+      <!-- Search Bar, should be connected to youtube API -->
+      <div class="field has-addons m-4">
+        <div class="control" id="search-text">
+          <input class="input is-hovered input is-fullwidth" type="text" placeholder="Search for Tutorials">
+        </div>
+        <div class="control">
+          <a class="button is-info">Search</a>
+        </div>
+      </div>
 
-            <a class="navbar-item">
-                Community
-            </a>
+      <!-- end of search Bar -->
 
-            <a class="navbar-item">
-                Notes
+      <!-- Login / Sign Up (Use Firebase API) -->
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary" id="btn-show-signup-modal" data-target="sign-up-modal">
+              <strong>Sign up</strong>
             </a>
-      
-            <div class="navbar-item has-dropdown is-hoverable">
-              <a class="navbar-link">
-                More
-              </a>
-      
-              <div class="navbar-dropdown">
-                <a class="navbar-item">
-                  About Us
-                </a>
-                <a class="navbar-item" href="./contactus.html">
-                  Contact Us
-                </a>
-                <hr class="navbar-divider">
-                <a class="navbar-item">
-                  Report an issue
-                </a>
-              </div>
-            </div>
+            <a class="button" id="btn-show-login-modal" data-target="login-modal">
+              Log in
+            </a>
           </div>
- <!-- Search Bar, should be connected to youtube API -->
-          <div class = "field has-addons m-4">
-            <div class = "control" id = "search-text">
-               <input class = "input is-hovered input is-fullwidth" type = "text" placeholder = "Search for Tutorials">
-            </div>
-            <div class = "control">
-                <a class = "button is-info">Search</a>
-             </div>
-          </div>
-            
- <!-- end of search Bar -->
-      
-   <!-- Login / Sign Up (Use Firebase API) -->
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-          <a class="button is-primary" id="btn-show-signup-modal" data-target="sign-up-modal">
-          <strong>Sign up</strong>
-          </a>
-          <a class="button" id="btn-show-login-modal" data-target="login-modal">
-            Log in
-          </a>
         </div>
       </div>
     </div>
-  </div>
-</nav>
-<!-- End of Nav Bar -->
-  
-<!-- NOW PLAYING -->
-    <section class="columns is-10 section level-item has-text-centered">
-    <h3 class="title">NOW PLAYING</h3>
-    </section>
+  </nav>
+  <!-- End of Nav Bar -->
+
+  <!-- NOW PLAYING -->
+  <section class="columns is-10 section level-item has-text-centered">
+    <!-- <h3 class="title">NOW PLAYING</h3> -->
+  </section>
+  <!-- Added Tiles Here -Joe -->
+  <div class="tile is-ancestor">
+    <div class="tile is-3 is-vertical is-parent">
+      <p class="title is-4 text-center" style="text-align: center;">Recently Viewed</p>
+      <div class="tile is-child box">
+        <p class="title">One</p>
+        <img src="https://bulma.io/images/placeholders/1280x960.png">
+      </div>
+      <div class="tile is-child box">
+        <p class="title">Two</p>
+        <img src="https://bulma.io/images/placeholders/1280x960.png">
+      </div>
+      <div class="tile is-child box">
+        <p class="title">Three</p>
+        <img src="https://bulma.io/images/placeholders/1280x960.png">
+      </div>
+      <div class="tile is-child box">
+        <p class="title">Four</p>
+        <img src="https://bulma.io/images/placeholders/1280x960.png">
+      </div>
+    </div>
+    <div class="tile is-parent">
+      <div class="tile is-child box">
+        <p class="title is-4 text-center" style="text-align: center;">Now Playing</p>
+        <!-- This is where the actual NOW PLAYING tile starts -Joe -->
         <div class="card ml-6 mr-6 mt-0 mb-0">
-            <div class="card-image">
-                <figure class="image is-3by2">
-                    <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-                    <i class="fa-thin fa-arrows-retweet"></i>
-                </figure>
-             </div>
+          <div class="card-image">
+            <figure class="image is-3by2">
+              <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+              <i class="fa-thin fa-arrows-retweet"></i>
+            </figure>
+          </div>
         </div>
         <!-- <div class="level-right mr-6"> //FOR LATER//
             <a class="level-item">
@@ -122,290 +147,272 @@
           <a href="">REVIEWS</a>
           <a href="">LEARNING TOOLS</a>
         </div>
-    
+
         <article class="media m-6">
-            <figure class="media-left">
-              <p class="image is-64x64">
-                <img src="https://bulma.io/images/placeholders/128x128.png">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="content">
+              <p>
+                <strong>Alvin Pollard</strong>
+                <br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit
+                blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                <br>
+                <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
               </p>
-            </figure>
-            <div class="media-content">
-              <div class="content">
-                <p>
-                  <strong>Alvin Pollard</strong>
-                  <br>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
-                  <br>
-                  <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
-                </p>
-              </div>
-          
-              <article class="media">
-                <figure class="media-left">
-                  <p class="image is-48x48">
-                    <img src="https://bulma.io/images/placeholders/96x96.png">
-                  </p>
-                </figure>
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>Solomon Dorsey</strong>
-                      <br>
-                      Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo feugiat.
-                      <br>
-                      <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
-                    </p>
-                  </div>
-          
-                  <article class="media">
-                    Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu lorem cursus ullamcorper sit amet nec massa.
-                  </article>
-          
-                  <article class="media">
-                    Morbi vitae diam et purus tincidunt porttitor vel vitae augue. Praesent malesuada metus sed pharetra euismod. Cras tellus odio, tincidunt iaculis diam non, porta aliquet tortor.
-                  </article>
-                </div>
-              </article>
-          
-              <article class="media">
-                <figure class="media-left">
-                  <p class="image is-48x48">
-                    <img src="https://bulma.io/images/placeholders/96x96.png">
-                  </p>
-                </figure>
-                <div class="media-content">
-                  <div class="content">
-                    <p>
-                      <strong>Joseph Leano </strong>
-                      <br>
-                      Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
-                      <br>
-                      <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
-                    </p>
-                  </div>
-                </div>
-              </article>
             </div>
-          </article>
-          
-          <article class="media m-6">
-            <figure class="media-left">
-              <p class="image is-64x64">
-                <img src="https://bulma.io/images/placeholders/128x128.png">
+
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-48x48">
+                  <img src="https://bulma.io/images/placeholders/96x96.png">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Solomon Dorsey</strong>
+                    <br>
+                    Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus
+                    et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo
+                    feugiat.
+                    <br>
+                    <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                  </p>
+                </div>
+
+                <article class="media">
+                  Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu lorem cursus ullamcorper sit amet nec
+                  massa.
+                </article>
+
+                <article class="media">
+                  Morbi vitae diam et purus tincidunt porttitor vel vitae augue. Praesent malesuada metus sed pharetra
+                  euismod. Cras tellus odio, tincidunt iaculis diam non, porta aliquet tortor.
+                </article>
+              </div>
+            </article>
+
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-48x48">
+                  <img src="https://bulma.io/images/placeholders/96x96.png">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Joseph Leano </strong>
+                    <br>
+                    Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna
+                    vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et
+                    ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
+                    <br>
+                    <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </article>
+
+        <article class="media m-6">
+          <figure class="media-left">
+            <p class="image is-64x64">
+              <img src="https://bulma.io/images/placeholders/128x128.png">
+            </p>
+          </figure>
+          <div class="media-content">
+            <div class="field">
+              <p class="control">
+                <textarea class="textarea" placeholder="Add a comment..."></textarea>
               </p>
-            </figure>
-            <div class="media-content">
-              <div class="field">
-                <p class="control">
-                  <textarea class="textarea" placeholder="Add a comment..."></textarea>
-                </p>
-              </div>
-              <div class="field">
-                <p class="control">
-                  <button class="button">Post comment</button>
-                </p>
-              </div>
             </div>
-          </article>   
+            <div class="field">
+              <p class="control">
+                <button class="button">Post comment</button>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
 
-    <!-- Category Section (Use Youtube API) -->
-    <section class="section level-item has-text-centered">
-        <h3 class="title">COURSES</h3>
-    </section>
-        <div class="buttons level-item has-text-centered buttons are-medium is-rounded">
-            <button class="button is-primary is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            <button class="button is-link is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            <button class="button is-info is-light">JAVASCRIPT</button>
-            <button class="button is-success is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PHYTON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            <button class="button is-warning is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REACT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-            <button class="button is-danger is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AWS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-        </div>
-    
-    <!-- Notes (Local Storage) Section -->
 
-    <!-- Recommended Videos Section (Use Youtube API) -->
+  <!-- Category Section (Use Youtube API) -->
+  <section class="section level-item has-text-centered">
+    <h3 class="title">COURSES</h3>
+  </section>
+  <div class="buttons level-item has-text-centered buttons are-medium is-rounded">
+    <button
+      class="button is-primary is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HTML&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    <button
+      class="button is-link is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    <button class="button is-info is-light">JAVASCRIPT</button>
+    <button
+      class="button is-success is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PHYTON&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    <button
+      class="button is-warning is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;REACT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+    <button
+      class="button is-danger is-light">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AWS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+  </div>
 
-    <section class="section level-item has-text-centered">
-        <h3 class="title">RECOMMENDED VIDEOS</h3>
-    </section>
-     <div class="columns m-3">
-        <div class="column">
-          First video
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-3by2">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          Second video
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-3by2">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          Third video
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-3by2">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-          </div>
-        </div>
-        <div class="column">
-          Fourth video
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-3by2">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-              </figure>
-            </div>
-          </div>
+  <!-- Notes (Local Storage) Section -->
+
+  <!-- Recommended Videos Section (Use Youtube API) -->
+
+  <section class="section level-item has-text-centered">
+    <h3 class="title">RECOMMENDED VIDEOS</h3>
+  </section>
+  <div class="columns m-3">
+    <div class="column">
+      First video
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-3by2">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+          </figure>
         </div>
       </div>
-
-      <!-- MODAL FOR SIGN UP PAGE -->
-      <div id="sign-up-modal" class = "modal">
-        <div class = "modal-background"></div>
-        <div class = "modal-content">
-           <div class = "box">
-                 <div class = "media-content">
-                  <div class="columns">
-                    <div class="column">
-                      <form method="POST" class="box p-5">
-                          <label class="is-block mb-4">
-                              <span class="is-block mb-2">Username</span>
-                              <input
-                                name="username"
-                                type="username"
-                                class="input"
-                                minlength="6"
-                                placeholder="(must be 6+ chars)"
-                                required
-                              />
-                            </label>
-              
-                          <label class="is-block mb-4">
-                              <span class="is-block mb-2">Email address</span>
-                              <input
-                              required
-                              type="email"
-                              class="input"
-                              placeholder="eastmountainmonsters@gmail.com"
-                           />
-                          </label>
-                
-                          <label class="is-block mb-4">
-                              <span class="is-block mb-2">Password</span>
-                              <input
-                              name="password"
-                              type="password"
-                              class="input"
-                              minlength="10"
-                              placeholder="(must be 10+ chars)"
-                              required
-                              />
-                        </label>
-                
-                        <div class="mb-4">
-                          <label>
-                            <input type="checkbox" name="tos" value="yes" required />
-                            <span>I agree with the Terms and Conditions</span>
-                          </label>
-                        </div>
-                
-                        <div class="mb-4">
-                          <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Sign Up</button>
-                        </div>
-                
-                        <div>
-                          <div class="is-size-7 has-text-right">
-                            by
-                            <a
-                              href="https://eastmountainmonsters.com/start"
-                              class="has-text-dark"
-                              target="_blank"
-                              >EastMountainMonsters</a
-                            >
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>              
-                 </div>
-              </article>
-           </div>
+    </div>
+    <div class="column">
+      Second video
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-3by2">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+          </figure>
         </div>
-        <button class = "modal-close is-large" id="signup-modal-close" aria-label = "close"></button>
-     </div>
-
-
-      <!-- MODAL FOR LOG IN PAGE -->
-      <div id="login-modal" class = "modal">
-        <div class = "modal-background"></div>
-        <div class = "modal-content">
-           <div class = "box">
-                 <div class = "media-content">
-                      <div class="columns">
-                        <div class="column">
-                          <form method="POST" class="box p-5">
-                            <label class="is-block mb-4">
-                              <span class="is-block mb-2">Email address</span>
-                              <input
-                                required
-                                type="email"
-                                class="input"
-                                placeholder="eastmountainmonsters@gmail.com"
-                              />
-                            </label>
-                    
-                            <label class="is-block mb-4">
-                              <span class="is-block mb-2">Password</span>
-                              <input
-                                name="password"
-                                type="password"
-                                class="input"
-                                minlength="10"
-                                placeholder="(must be 10+ chars)"
-                                required
-                              />
-                            </label>
-                    
-                            <div class="mb-4">
-                              <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Log In</button>
-                            </div>
-                    
-                            <div>
-                              <div class="is-size-7 has-text-right">
-                                by
-                                <a
-                                  href="https://eastmountainmonsters.com/start"
-                                  class="has-text-dark"
-                                  target="_blank"
-                                  >EastMountainMonsters</a
-                                >
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                      </div>                 
-                 </div>
-              </article>
-           </div>
+      </div>
+    </div>
+    <div class="column">
+      Third video
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-3by2">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+          </figure>
         </div>
-        <button class = "modal-close is-large" id="login-modal-close" aria-label="close"></button>
-     </div>
+      </div>
+    </div>
+    <div class="column">
+      Fourth video
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-3by2">
+            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- Recently Viewed Videos Section (Local Storage) -->
+  <!-- MODAL FOR SIGN UP PAGE -->
+  <div id="sign-up-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <div class="media-content">
+          <div class="columns">
+            <div class="column">
+              <form method="POST" class="box p-5">
+                <label class="is-block mb-4">
+                  <span class="is-block mb-2">Username</span>
+                  <input name="username" type="username" class="input" minlength="6" placeholder="(must be 6+ chars)"
+                    required />
+                </label>
 
-    <script src="./assets/javascript/script.js"></script>
+                <label class="is-block mb-4">
+                  <span class="is-block mb-2">Email address</span>
+                  <input required type="email" class="input" placeholder="eastmountainmonsters@gmail.com" />
+                </label>
+
+                <label class="is-block mb-4">
+                  <span class="is-block mb-2">Password</span>
+                  <input name="password" type="password" class="input" minlength="10" placeholder="(must be 10+ chars)"
+                    required />
+                </label>
+
+                <div class="mb-4">
+                  <label>
+                    <input type="checkbox" name="tos" value="yes" required />
+                    <span>I agree with the Terms and Conditions</span>
+                  </label>
+                </div>
+
+                <div class="mb-4">
+                  <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Sign
+                    Up</button>
+                </div>
+
+                <div>
+                  <div class="is-size-7 has-text-right">
+                    by
+                    <a href="https://eastmountainmonsters.com/start" class="has-text-dark"
+                      target="_blank">EastMountainMonsters</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        </article>
+      </div>
+    </div>
+    <button class="modal-close is-large" id="signup-modal-close" aria-label="close"></button>
+  </div>
+
+
+  <!-- MODAL FOR LOG IN PAGE -->
+  <div id="login-modal" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="box">
+        <div class="media-content">
+          <div class="columns">
+            <div class="column">
+              <form method="POST" class="box p-5">
+                <label class="is-block mb-4">
+                  <span class="is-block mb-2">Email address</span>
+                  <input required type="email" class="input" placeholder="eastmountainmonsters@gmail.com" />
+                </label>
+
+                <label class="is-block mb-4">
+                  <span class="is-block mb-2">Password</span>
+                  <input name="password" type="password" class="input" minlength="10" placeholder="(must be 10+ chars)"
+                    required />
+                </label>
+
+                <div class="mb-4">
+                  <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Log
+                    In</button>
+                </div>
+
+                <div>
+                  <div class="is-size-7 has-text-right">
+                    by
+                    <a href="https://eastmountainmonsters.com/start" class="has-text-dark"
+                      target="_blank">EastMountainMonsters</a>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        </article>
+      </div>
+    </div>
+    <button class="modal-close is-large" id="login-modal-close" aria-label="close"></button>
+  </div>
+
+  <!-- Recently Viewed Videos Section (Local Storage) -->
+
+  <script src="./assets/javascript/script.js"></script>
 </body>
 
 </html>
