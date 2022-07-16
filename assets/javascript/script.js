@@ -13,6 +13,17 @@
 
 // Access Youtube API for User searches
 
+function callVimeoAPI(){
+
+  fetch("https://api.vimeo.com/videos?query=" + myQuery + "&page=1&perPage=10&access_token=0ff146aa1ed83ea925ee9c0cd2b088bb", {
+  })
+  .then(function(response){
+      return response.json();
+  })
+  .then(function(data){
+      console.log(data);
+  })
+  }
 
 // Implement Firebase API to allow users to chat and potentially handling log in for site
 
