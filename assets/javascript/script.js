@@ -117,7 +117,7 @@ function formatQuery(query) {
 function findVideos() {
   var myQuery = myInput.value;
   var myFormattedQuery = formatQuery(myQuery);
-  // callVimeoAPI(myFormattedQuery);
+  callVimeoAPI(myFormattedQuery);
   callYoutubeAPI(myFormattedQuery);
 }
 
