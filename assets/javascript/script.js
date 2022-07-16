@@ -39,22 +39,22 @@ function populateData(image, name, desc, link, cont){
 }
 
 // Access Youtube API for User searches
-function callYoutubeAPI(){
-  fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=javascript%20tutorial%20english&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
+function callYoutubeAPI(query){
+  fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=" + query + "&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
 .then((result)=>{
   return result.json();
 }).then((data)=>{
   console.log(data)
   for(var i = 0; i < 5; i++){ 
-    populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, data.items[i].snippet.description, data.items[i].id.videoId, myYoutubeCont)       
+    populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, data.items[i].snippet.description, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), myYoutubeCont)       
   }
 })
 }
 
 
 // calls the Vimeo API and adds relevant data to the site
-function callVimeoAPI(){
-  fetch("https://api.vimeo.com/videos?query=" + myQuery + "&page=1&perPage=10&access_token=0ff146aa1ed83ea925ee9c0cd2b088bb", {
+function callVimeoAPI(query){
+  fetch("https://api.vimeo.com/videos?query=" + query + "&page=1&perPage=10&access_token=0ff146aa1ed83ea925ee9c0cd2b088bb", {
   })
   .then(function(response){
       return response.json();
@@ -67,6 +67,11 @@ function callVimeoAPI(){
     })
   }
 
+function findVideos(myQuery){
+  callVimeoAPI(myQuery);
+  var str = myQuery.replaceAll(' ', '%20');
+  callYoutubeAPI(str);
+} 
 // Implement Firebase API to allow users to chat and potentially handling log in for site
 
 
@@ -115,6 +120,6 @@ myInput.addEventListener("keypress", function (event) {
 
   if (event.key === "Enter") {
     event.preventDefault();
-    callYoutubeAPI();
+    findVideos(myInput.value);
   }
 })
