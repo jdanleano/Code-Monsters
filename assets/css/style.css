@@ -29,16 +29,6 @@
   flex-direction: column;
 } */
 
-.img-size {
-  width: 500px;
-  height: calc(width * 1.78);
-  pointer-events: none;
-}
-
-h2 {
-  pointer-events: none;
-}
-
 .disabled-link {
   pointer-events: none;
 }
