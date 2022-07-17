@@ -20,6 +20,36 @@ var myEmbedContainer = document.querySelector("#embed-container");
 var myNavbar = document.querySelector("#navbarBasicExample")
 var myBurgerButton = document.querySelector("#burger-button")
 
+//Create Bulma Card
+function createCard(imageURL, title) {
+  var myCard = document.createElement("div");
+  myCard.classList.add("card");
+
+  var myCardImage = document.createElement("div");
+  myCardImage.classList.add("card-image");
+  myCard.appendChild(myCardImage);
+  var myFigure = document.createElement("figure");
+  myFigure.classList.add("image", "is-4by3");
+  myCardImage.appendChild(myFigure);
+  var myVideoImage = document.createElement("img");
+  myVideoImage.setAttribute("src", imageURL);
+  myVideoImage.setAttribute("alt", title);
+  myFigure.appendChild(myVideoImage);
+
+  var cardContent = document.createElement("div");
+  cardContent.classList.add("card-content");
+  myCard.appendChild(cardContent);
+  var mediaContent = document.createElement("div")
+  mediaContent.classList.add("media-content")
+  cardContent.appendChild(mediaContent)
+  var titleFour = document.createElement("p")
+  titleFour.classList.add("title", "is-4")
+  titleFour.textContent = title
+  mediaContent.appendChild(titleFour)
+
+  return myCard
+}
+
 // Format Embed for vimeo
 function vimeoEmbed(str) {
   var myFirstSplit = str.split('src="');
@@ -57,6 +87,7 @@ function populateData(image, name, link, vimeo, embed, cont) {
   cont.appendChild(myContainer);
 }
 
+
 // Access Youtube API for User searches
 function callYoutubeAPI(query) {
   fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=" + query + "&type=video&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
@@ -81,7 +112,7 @@ function callVimeoAPI(query) {
     .then(function (data) {
       console.log(data);
       for (var i = 0; i < 5; i++) {
-        populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
+        // populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
       }
     })
 }
