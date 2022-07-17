@@ -212,38 +212,6 @@ function isLocalStorage() {
   }
 }
 
-// MODAL JS for SIGN UP and LOG IN
-
-
-let htmlEl = document.getElementsByTagName('html')[0];
-const btnShowSignupModal = document.getElementById("btn-show-signup-modal")
-let btnSignupCloseModal = document.getElementById("signup-modal-close")
-let btnLoginCloseModal = document.getElementById("login-modal-close")
-
-btnShowSignupModal.onclick = function (e) {
-  const target = btnShowSignupModal.dataset.target;
-  htmlEl.classList.add("is-clipped");
-  document.getElementById(target).classList.add("is-active");
-}
-
-btnSignupCloseModal.onclick = function (e) {
-  htmlEl.classList.remove("is-clipped");
-  btnSignupCloseModal.parentElement.classList.remove("is-active")
-}
-
-const btnShowLoginModal = document.getElementById("btn-show-login-modal")
-
-btnShowLoginModal.onclick = function (e) {
-  const target = btnShowLoginModal.dataset.target;
-  htmlEl.classList.add("is-clipped");
-  document.getElementById(target).classList.add("is-active");
-}
-
-btnLoginCloseModal.onclick = function (e) {
-  htmlEl.classList.remove("is-clipped");
-  btnLoginCloseModal.parentElement.classList.remove("is-active")
-}
-
 // Allows the user to press ENTER after typing their search query to execute the search.
 myInput.addEventListener("keypress", function (event) {
 

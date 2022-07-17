@@ -38,3 +38,12 @@
 h2 {
   pointer-events: none;
 }
+
+.disabled-link {
+  pointer-events: none;
+}
+
+.navbar-link img {
+  border-radius: 50%;
+  margin-right: 8px;
+}
