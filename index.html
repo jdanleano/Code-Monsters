@@ -14,7 +14,7 @@
 <body>
 
   <!-- Navigation Bar -->
-  <nav class="navbar" role="navigation" aria-label="main navigation">
+  <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
         <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
@@ -81,12 +81,30 @@
       <!-- Login / Sign Up (Use Firebase API) -->
       <div class="navbar-end">
         <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary" id="btn-show-signup-modal" data-target="sign-up-modal">
+          <div class="buttons" id="auth-buttons">
+            <a class="button is-primary" id="btn-show-signup-modal" data-target="modal-signup">
               <strong>Sign up</strong>
             </a>
-            <a class="button" id="btn-show-login-modal" data-target="login-modal">
+            <a class="button" id="btn-show-login-modal" data-target="modal-login">
               Log in
+            </a>
+          </div>
+        </div>
+        <div class="navbar-item has-dropdown is-hoverable" id="logged-user-dropdown">
+          <a class="navbar-link" id="logged-user-name">
+            <img src="./assets/images/empty-profile-picture.png" referrerpolicy="no-referrer"> <span>Dummy user</span>
+          </a>
+
+          <div class="navbar-dropdown is-right">
+            <a class="navbar-item">
+              My Profile
+            </a>
+            <a class="navbar-item" href="./contactus.html">
+              Settings
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item" id="auth-logout-link">
+              Logout
             </a>
           </div>
         </div>
@@ -312,104 +330,136 @@
     </div>
   </div>
 
-  <!-- MODAL FOR SIGN UP PAGE -->
-  <div id="sign-up-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <div class="media-content">
-          <div class="columns">
-            <div class="column">
-              <form method="POST" class="box p-5">
-                <label class="is-block mb-4">
-                  <span class="is-block mb-2">Username</span>
-                  <input name="username" type="username" class="input" minlength="6" placeholder="(must be 6+ chars)"
-                    required />
-                </label>
 
-                <label class="is-block mb-4">
-                  <span class="is-block mb-2">Email address</span>
-                  <input required type="email" class="input" placeholder="eastmountainmonsters@gmail.com" />
-                </label>
-
-                <label class="is-block mb-4">
-                  <span class="is-block mb-2">Password</span>
-                  <input name="password" type="password" class="input" minlength="10" placeholder="(must be 10+ chars)"
-                    required />
-                </label>
-
-                <div class="mb-4">
-                  <label>
-                    <input type="checkbox" name="tos" value="yes" required />
-                    <span>I agree with the Terms and Conditions</span>
-                  </label>
+  <div class="modal-container">
+      <!-- MODAL FOR SIGN UP PAGE -->
+      <div id="modal-signup" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <div class="media-content">
+              <div class="columns">
+                <div class="column">
+                  <form method="POST" class="box p-5">
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Username</span>
+                      <input name="username" type="username" class="input" minlength="6" placeholder="(must be 6+ chars)"
+                        required />
+                    </label>
+    
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Email address</span>
+                      <input required type="email" class="input" placeholder="eastmountainmonsters@gmail.com" />
+                    </label>
+    
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Password</span>
+                      <input name="password" type="password" class="input" minlength="10" placeholder="(must be 10+ chars)"
+                        required />
+                    </label>
+    
+                    <div class="mb-4">
+                      <label>
+                        <input type="checkbox" name="tos" value="yes" required />
+                        <span>I agree with the Terms and Conditions</span>
+                      </label>
+                    </div>
+    
+                    <div class="mb-4">
+                      <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Sign
+                        Up</button>
+                    </div>
+    
+                    <div>
+                      <div class="is-size-7 has-text-right">
+                        by
+                        <a href="https://eastmountainmonsters.com/start" class="has-text-dark"
+                          target="_blank">EastMountainMonsters</a>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-
-                <div class="mb-4">
-                  <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Sign
-                    Up</button>
-                </div>
-
-                <div>
-                  <div class="is-size-7 has-text-right">
-                    by
-                    <a href="https://codenmonsters.com/start" class="has-text-dark" target="_blank">Code Monsters</a>
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
+            </article>
           </div>
         </div>
-        </article>
+        <button class="modal-close is-large" id="signup-modal-close" aria-label="close"></button>
       </div>
-    </div>
-    <button class="modal-close is-large" id="signup-modal-close" aria-label="close"></button>
-  </div>
+    
+      <!-- MODAL FOR LOG IN PAGE -->
+      <div id="modal-login" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <div class="media-content">
+              <div class="columns">
+                <div class="column">
+                  <form id="form-login-modal" method="POST" class="box p-5">
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Email address</span>
+                      <input required name="email" type="email" class="input" placeholder="eastmountainmonsters@gmail.com" />
+                    </label>
+    
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Password</span>
+                      <input required name="password" type="password" class="input" placeholder="*************" />
+                    </label>
+    
+                    <div class="mb-4">
+                      <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Log
+                        In</button>
+                    </div>
 
+                    <p class="is-5 has-text-centered mb-4">Login using Social Media</p>
 
-  <!-- MODAL FOR LOG IN PAGE -->
-  <div id="login-modal" class="modal">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <div class="box">
-        <div class="media-content">
-          <div class="columns">
-            <div class="column">
-              <form method="POST" class="box p-5">
-                <label class="is-block mb-4">
-                  <span class="is-block mb-2">Email address</span>
-                  <input required type="email" class="input" placeholder="eastmountainmonsters@gmail.com" />
-                </label>
-
-                <label class="is-block mb-4">
-                  <span class="is-block mb-2">Password</span>
-                  <input name="password" type="password" class="input" minlength="10" placeholder="(must be 10+ chars)"
-                    required />
-                </label>
-
-                <div class="mb-4">
-                  <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Log
-                    In</button>
+                    <div class="buttons is-centered">
+                      <a class="button is-medium is-google" id="auth-google-button">
+                        <span class="icon">
+                          <i class="fab fa-google fa-lg"></i>
+                        </span>
+                      </a>
+                      <a class="button is-medium is-facebook disabled-link" id="auth-facebook-button">
+                        <span class="icon">
+                          <i class="fab fa-facebook-f fa-lg"></i>
+                        </span>
+                      </a>
+                      <a class="button is-medium is-twitter disabled-link" id="auth-twitter-button">
+                        <span class="icon">
+                          <i class="fab fa-twitter fa-lg"></i>
+                        </span>
+                      </a>
+                      <a class="button is-medium is-github disabled-link" id="auth-github-button">
+                        <span class="icon">
+                          <i class="fab fa-github fa-lg"></i>
+                        </span>
+                      </a>
+                    </div>
+    
+                    <div>
+                      <div class="is-size-7 has-text-right">
+                        by
+                        <a href="https://eastmountainmonsters.com/start" class="has-text-dark"
+                          target="_blank">EastMountainMonsters</a>
+                      </div>
+                    </div>
+                  </form>
                 </div>
-
-                <div>
-                  <div class="is-size-7 has-text-right">
-                    by
-                    <a href="https://codemonsters.com/start" class="has-text-dark" target="_blank">Code Monsters</a>
-                  </div>
-                </div>
-              </form>
+              </div>
             </div>
+            </article>
           </div>
         </div>
-        </article>
-      </div>
+        <button class="modal-close is-large" id="login-modal-close" aria-label="close"></button>
     </div>
-    <button class="modal-close is-large" id="login-modal-close" aria-label="close"></button>
+    
   </div>
 
   <!-- Recently Viewed Videos Section (Local Storage) -->
-
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+  <script src="./assets/javascript/authentication.js"></script>  
   <script src="./assets/javascript/script.js"></script>
 </body>
 

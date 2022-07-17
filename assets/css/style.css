@@ -29,12 +29,11 @@
   flex-direction: column;
 } */
 
-/* .img-size {
-  width: 500px;
-  height: calc(width * 1.78);
+.disabled-link {
   pointer-events: none;
 }
 
-h2 {
-  pointer-events: none;
-} */
+.navbar-link img {
+  border-radius: 50%;
+  margin-right: 8px;
+}
