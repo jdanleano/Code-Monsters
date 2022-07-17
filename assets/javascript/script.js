@@ -19,7 +19,9 @@ var myResultsContainer = document.querySelector("#video-event-delegate");
 var myEmbedContainer = document.querySelector("#embed-container");
 var myNavbar = document.querySelector("#navbarBasicExample")
 var myBurgerButton = document.querySelector("#burger-button")
-
+var ytArray = [];
+var vimeoArray = []
+console.log(vimeoArray)
 //Create Bulma Card
 function createCard(imageURL, title) {
   var myCard = document.createElement("div");
@@ -87,6 +89,29 @@ function populateData(image, name, link, vimeo, embed, cont) {
   cont.appendChild(myContainer);
 }
 
+// Store API data
+function addToArray(vimeo, object) {
+  if (vimeo) {
+    vimeoArray.push(object)
+  } else {
+    ytArray.push(object)
+  }
+  console.log(vimeoArray)
+}
+
+// Create result object
+function createResultObject(image, name, link, vimeo, embed, cont) {
+  var myObject = {
+    img: image,
+    name: name,
+    link: link,
+    vimeo: vimeo,
+    embed: embed,
+    cont: cont
+  }
+  return myObject;
+}
+
 
 // Access Youtube API for User searches
 function callYoutubeAPI(query) {
@@ -112,6 +137,9 @@ function callVimeoAPI(query) {
     .then(function (data) {
       console.log(data);
       for (var i = 0; i < 5; i++) {
+        var tempObject = createResultObject(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
+        console.log(tempObject)
+        addToArray(true, tempObject)
         // populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
       }
     })
@@ -152,7 +180,7 @@ function findVideos() {
   var myQuery = myInput.value;
   var myFormattedQuery = formatQuery(myQuery);
   callVimeoAPI(myFormattedQuery);
-  callYoutubeAPI(myFormattedQuery);
+  // callYoutubeAPI(myFormattedQuery);
 }
 
 // Add Event Delegate for video results
