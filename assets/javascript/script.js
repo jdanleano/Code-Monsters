@@ -21,11 +21,12 @@ var myNavbar = document.querySelector("#navbarBasicExample")
 var myBurgerButton = document.querySelector("#burger-button")
 var ytArray = [];
 var vimeoArray = []
-console.log(vimeoArray)
+
 //Create Bulma Card
-function createCard(imageURL, title) {
+function createCard(imageURL, title, index) {
   var myCard = document.createElement("div");
   myCard.classList.add("card");
+  myCard.setAttribute("id", index)
 
   var myCardImage = document.createElement("div");
   myCardImage.classList.add("card-image");
@@ -96,7 +97,7 @@ function addToArray(vimeo, object) {
   } else {
     ytArray.push(object)
   }
-  console.log(vimeoArray)
+
 }
 
 // Create result object
@@ -138,8 +139,8 @@ function callVimeoAPI(query) {
       console.log(data);
       for (var i = 0; i < 5; i++) {
         var tempObject = createResultObject(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
-        console.log(tempObject)
         addToArray(true, tempObject)
+        tempObject.cont.appendChild(createCard(tempObject.img, tempObject.name, i))
         // populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
       }
     })
