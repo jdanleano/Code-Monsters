@@ -25,7 +25,7 @@ var vimeoArray = []
 //Create Bulma Card
 function createCard(imageURL, title, index) {
   var myCard = document.createElement("div");
-  myCard.classList.add("card");
+  myCard.classList.add("card", "div-parent");
   myCard.setAttribute("id", index)
 
   var myCardImage = document.createElement("div");
@@ -37,16 +37,17 @@ function createCard(imageURL, title, index) {
   var myVideoImage = document.createElement("img");
   myVideoImage.setAttribute("src", imageURL);
   myVideoImage.setAttribute("alt", title);
+  myVideoImage.classList.add("video-block")
   myFigure.appendChild(myVideoImage);
 
   var cardContent = document.createElement("div");
-  cardContent.classList.add("card-content");
+  cardContent.classList.add("card-content", "video-block");
   myCard.appendChild(cardContent);
   var mediaContent = document.createElement("div")
   mediaContent.classList.add("media-content")
   cardContent.appendChild(mediaContent)
   var titleFour = document.createElement("p")
-  titleFour.classList.add("title", "is-4")
+  titleFour.classList.add("title", "is-4", "video-block")
   titleFour.textContent = title
   mediaContent.appendChild(titleFour)
 
@@ -189,6 +190,7 @@ myResultsContainer.onclick = function (event) {
   var videoResult = event.target;
 
   if (videoResult.classList.contains("video-block")) {
+    console.log(videoResult.closest(".div-parent"));
     console.log("it's working!!!!");
   }
 }
