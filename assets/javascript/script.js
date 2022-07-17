@@ -17,6 +17,8 @@ var myYoutubeCont = document.querySelector("#youtube-results");
 var myVimeoCont = document.querySelector("#vimeo-results");
 var myResultsContainer = document.querySelector("#video-event-delegate");
 var myEmbedContainer = document.querySelector("#embed-container");
+var myNavbar = document.querySelector("#navbarBasicExample")
+var myBurgerButton = document.querySelector("#burger-button")
 
 // Format Embed for vimeo
 function vimeoEmbed(str) {
@@ -191,5 +193,13 @@ myInput.addEventListener("keypress", function (event) {
   }
 })
 
-// Solomon please add eventlistener to submit button
+// Eventlistener for search button
 searchButton.addEventListener("click", findVideos)
+
+//Shows/Hides Navbar on mobile
+function toggleNavbar() {
+  myNavbar.classList.toggle("is-active");
+}
+
+//Event listener for Burger Button
+myBurgerButton.addEventListener("click", toggleNavbar)
