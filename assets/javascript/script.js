@@ -121,7 +121,7 @@ function callYoutubeAPI(query) {
       return result.json();
     }).then((data) => {
       console.log(data)
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < data.items.length; i++) {
         var ytObject = createResultObject(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), false, ("https://www.youtube.com/embed/" + data.items[i].id.videoId), myYoutubeCont)
         addToArray(false, ytObject)
         ytObject.cont.appendChild(createCard(ytObject.img, ytObject.name, "yt", i))
@@ -139,7 +139,7 @@ function callVimeoAPI(query) {
     })
     .then(function (data) {
       console.log(data);
-      for (var i = 0; i < 5; i++) {
+      for (var i = 0; i < data.data.length; i++) {
         // Write a function to validate images and if they are undefined substitute another image (also find placeholder) - Alvin
         // Sometimes the embed link returns undefined, look into vimeo api and see if there is a filter in case some videos don't allow embedding.
         var vimeoObject = createResultObject(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
