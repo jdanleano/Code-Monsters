@@ -20,7 +20,7 @@ var myEmbedContainer = document.querySelector("#embed-container");
 var myNavbar = document.querySelector("#navbarBasicExample")
 var myBurgerButton = document.querySelector("#burger-button")
 var ytArray = [];
-var vimeoArray = []
+var vimeoArray = [];
 
 //Create Bulma Card
 function createCard(imageURL, title, source, index) {
@@ -122,7 +122,9 @@ function callYoutubeAPI(query) {
     }).then((data) => {
       console.log(data)
       for (var i = 0; i < 5; i++) {
-        populateData(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), false, ("https://www.youtube.com/embed/" + data.items[i].id.videoId), myYoutubeCont)
+        var ytObject = createResultObject(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), false, ("https://www.youtube.com/embed/" + data.items[i].id.videoId), myYoutubeCont)
+        addToArray(false, ytObject)
+        ytObject.cont.appendChild(createCard(ytObject.img, ytObject.name, "yt", i))
       }
     })
 }
@@ -138,10 +140,11 @@ function callVimeoAPI(query) {
     .then(function (data) {
       console.log(data);
       for (var i = 0; i < 5; i++) {
-        var tempObject = createResultObject(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
-        addToArray(true, tempObject)
-        tempObject.cont.appendChild(createCard(tempObject.img, tempObject.name, "vimeo", i))
-        // populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
+        // Write a function to validate images and if they are undefined substitute another image (also find placeholder) - Alvin
+        // Sometimes the embed link returns undefined, look into vimeo api and see if there is a filter in case some videos don't allow embedding.
+        var vimeoObject = createResultObject(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
+        addToArray(true, vimeoObject)
+        vimeoObject.cont.appendChild(createCard(vimeoObject.img, vimeoObject.name, "vimeo", i))
       }
     })
 }
@@ -178,10 +181,37 @@ function formatQuery(query) {
 
 // findVideos calls both youtube and vimeo apis while converting the input to something both apis can use.
 function findVideos() {
+  clearAllSearchRelated();
   var myQuery = myInput.value;
   var myFormattedQuery = formatQuery(myQuery);
   callVimeoAPI(myFormattedQuery);
-  // callYoutubeAPI(myFormattedQuery);
+  callYoutubeAPI(myFormattedQuery);
+}
+
+
+// Clear Embed container
+function clearEmbedContainer(){
+  if(myEmbedContainer.children.length > 0){
+    myEmbedContainer.removeChild(myEmbedContainer.children[0]);
+  }
+}
+
+
+// Clear Arrays, Embed and Search Containers
+function clearAllSearchRelated(){
+  for(var i = 0; i < 5; i++){
+    console.log(myYoutubeCont.children.length)
+    if(myYoutubeCont.children.length > 0){
+      myYoutubeCont.removeChild(myYoutubeCont.firstChild);
+      console.log(myYoutubeCont.children.length)
+    }
+    if(myVimeoCont.children.length > 0){
+      myVimeoCont.removeChild(myVimeoCont.firstChild);
+    }
+  }
+  ytArray.length = 0;
+  vimeoArray.length = 0;
+  clearEmbedContainer();
 }
 
 
@@ -196,10 +226,11 @@ function getEmbedVideo(video) {
 
   if (videoId[0] === "vimeo") {
     myFoundVideo = vimeoArray[videoId[1]].embed;
+    console.log(myFoundVideo)
     myEmbed.setAttribute("src", vimeoEmbed(myFoundVideo));
   } else {
     myFoundVideo = ytArray[videoId[1]];
-    myEmbed.setAttribute("src", embed);
+    myEmbed.setAttribute("src", ytArray[videoId[1]].embed);
   }
 
   myEmbedContainer.appendChild(myEmbed);
@@ -211,9 +242,8 @@ myResultsContainer.onclick = function (event) {
   var videoResult = event.target;
 
   if (videoResult.classList.contains("video-block")) {
-    console.log(videoResult.closest(".div-parent").id);
+    clearEmbedContainer();
     getEmbedVideo(videoResult.closest(".div-parent").id);
-    console.log("it's working!!!!");
   }
 }
 // Implement Firebase API to allow users to chat and potentially handling log in for site
