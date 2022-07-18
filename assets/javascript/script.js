@@ -25,19 +25,19 @@ var vimeoArray = []
 //Create Bulma Card
 function createCard(imageURL, title, index) {
   var myCard = document.createElement("div");
-  myCard.classList.add("card", "div-parent");
+  myCard.classList.add("card", "div-parent", "is-align-items-center");
   myCard.setAttribute("id", index)
 
   var myCardImage = document.createElement("div");
   myCardImage.classList.add("card-image");
   myCard.appendChild(myCardImage);
   var myFigure = document.createElement("figure");
-  myFigure.classList.add("image", "is-4by3");
+  myFigure.classList.add("image", "has-ratio");
   myCardImage.appendChild(myFigure);
   var myVideoImage = document.createElement("img");
   myVideoImage.setAttribute("src", imageURL);
   myVideoImage.setAttribute("alt", title);
-  myVideoImage.classList.add("video-block")
+  myVideoImage.classList.add("video-block", "is-flex", "img-card")
   myFigure.appendChild(myVideoImage);
 
   var cardContent = document.createElement("div");
@@ -47,12 +47,13 @@ function createCard(imageURL, title, index) {
   mediaContent.classList.add("media-content")
   cardContent.appendChild(mediaContent)
   var titleFour = document.createElement("p")
-  titleFour.classList.add("title", "is-4", "video-block")
+  titleFour.classList.add("title", "is-6", "video-block")
   titleFour.textContent = title
   mediaContent.appendChild(titleFour)
 
   return myCard
 }
+
 
 // Format Embed for vimeo
 function vimeoEmbed(str) {
@@ -81,7 +82,6 @@ function populateData(image, name, link, vimeo, embed, cont) {
   } else {
     myEmbed.setAttribute("src", embed);
   }
-
 
   myContainer.appendChild(myTitleImage);
   myContainer.appendChild(nameElement);
@@ -190,14 +190,11 @@ myResultsContainer.onclick = function (event) {
   var videoResult = event.target;
 
   if (videoResult.classList.contains("video-block")) {
-    console.log(videoResult.closest(".div-parent"));
+    console.log(videoResult.closest(".div-parent").id);
     console.log("it's working!!!!");
   }
 }
 // Implement Firebase API to allow users to chat and potentially handling log in for site
-
-
-// Declare any necessary variables
 
 
 // Add Event Delegates or listeners for the for each section of videos

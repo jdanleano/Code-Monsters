@@ -1,4 +1,3 @@
-/* Use Tailwind for CSS */
 /* Look into responsive design */
 
 #search-text {
@@ -16,19 +15,6 @@
   margin-right: 16px;
 }
 
-/* #youtube-results, #vimeo-results{
-  display: flex;
-  margin: 5px;
-  padding: 5px;
-} */
-
-/* .video-block {
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  flex-direction: column;
-} */
-
 .disabled-link {
   pointer-events: none;
 }
@@ -36,4 +22,13 @@
 .navbar-link img {
   border-radius: 50%;
   margin-right: 8px;
+}
+
+.div-parent{
+  width: 95%;
+  padding: 10px;
+}
+
+.div-parent p{
+  text-align: center;
 }
