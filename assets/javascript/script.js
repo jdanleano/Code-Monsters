@@ -23,10 +23,10 @@ var ytArray = [];
 var vimeoArray = []
 
 //Create Bulma Card
-function createCard(imageURL, title, index) {
+function createCard(imageURL, title, source, index) {
   var myCard = document.createElement("div");
   myCard.classList.add("card", "div-parent", "is-align-items-center");
-  myCard.setAttribute("id", index)
+  myCard.setAttribute("id", source + ":" + index)
 
   var myCardImage = document.createElement("div");
   myCardImage.classList.add("card-image");
@@ -59,7 +59,6 @@ function createCard(imageURL, title, index) {
 function vimeoEmbed(str) {
   var myFirstSplit = str.split('src="');
   var mySecondSplit = myFirstSplit[1].split('"></iframe>');
-  console.log(mySecondSplit[0]);
   return mySecondSplit[0];
 }
 
@@ -141,7 +140,7 @@ function callVimeoAPI(query) {
       for (var i = 0; i < 5; i++) {
         var tempObject = createResultObject(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
         addToArray(true, tempObject)
-        tempObject.cont.appendChild(createCard(tempObject.img, tempObject.name, i))
+        tempObject.cont.appendChild(createCard(tempObject.img, tempObject.name, "vimeo", i))
         // populateData(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
       }
     })
@@ -185,12 +184,35 @@ function findVideos() {
   // callYoutubeAPI(myFormattedQuery);
 }
 
+
+// Function getEmbedVideo(): finds passed in video and adds it to myEmbedContainer 
+function getEmbedVideo(video) {
+  var videoId = video.split(":");
+  var myFoundVideo;
+  var myEmbed = document.createElement("iframe");
+  myEmbed.classList.add("has-ratio");
+  myEmbed.setAttribute("width", "1920");
+  myEmbed.setAttribute("height", "720");
+
+  if (videoId[0] === "vimeo") {
+    myFoundVideo = vimeoArray[videoId[1]].embed;
+    myEmbed.setAttribute("src", vimeoEmbed(myFoundVideo));
+  } else {
+    myFoundVideo = ytArray[videoId[1]];
+    myEmbed.setAttribute("src", embed);
+  }
+
+  myEmbedContainer.appendChild(myEmbed);
+}
+
+
 // Add Event Delegate for video results
 myResultsContainer.onclick = function (event) {
   var videoResult = event.target;
 
   if (videoResult.classList.contains("video-block")) {
     console.log(videoResult.closest(".div-parent").id);
+    getEmbedVideo(videoResult.closest(".div-parent").id);
     console.log("it's working!!!!");
   }
 }
