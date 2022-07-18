@@ -32,3 +32,27 @@
 .div-parent p{
   text-align: center;
 }
+
+#landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 80vh;
+  /* Used the scroll-snap-align to center */
+  scroll-snap-align: center;
+}
+
+.shadow-text {
+  text-decoration: solid;
+  text-shadow: 4px 2px 0 #000,
+    2px 1px 0 #000,
+    3px -1px 0 #000;
+  color: #ffffff;
+}
+
+section#landing {
+  background: url(https://images.pexels.com/photos/113850/pexels-photo-113850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center center/cover;
+}
