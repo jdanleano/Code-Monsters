@@ -140,7 +140,6 @@ function callVimeoAPI(query) {
     .then(function (data) {
       console.log(data);
       for (var i = 0; i < data.data.length; i++) {
-        // Write a function to validate images and if they are undefined substitute another image (also find placeholder) - Alvin
         // Sometimes the embed link returns undefined, look into vimeo api and see if there is a filter in case some videos don't allow embedding.
         var vimeoObject = createResultObject(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
         addToArray(true, vimeoObject)
