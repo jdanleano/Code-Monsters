@@ -1,29 +1,22 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyCed6bHJuomOPElpid5bKFaCtUUGXV2q_E",
-    authDomain: "project-7ca3f.firebaseapp.com",
-    databaseURL: "https://project-7ca3f.firebaseio.com",
-    projectId: "project-7ca3f",
-    storageBucket: "project-7ca3f.appspot.com",
-    messagingSenderId: "105261573697",
-    appId: "1:105261573697:web:63c7ba559e15517613c8c0",
-    measurementId: "G-4EF1DDM1M4"
-};
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
+function getLoggedInUserFromLocalStorage(){
+  const loggedInUser = localStorage.getItem("ess-loggedin-user");
+  return loggedInUser ? JSON.parse(loggedInUser) : null;
 }
 
-let db = firebase.firestore();
-let currentUser;
+function setLoggedInUserFromLocalStorage(user){
+  localStorage.setItem("ess-loggedin-user", JSON.stringify(user));
+}
+
+function removeLoggedInUserFromLocalStorage(){
+  localStorage.removeItem("ess-loggedin-user");
+}
 
 function loginWithG() {
-  console.log("Sign in with G");
   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(googleAuthProvider);
 }
 
 function signOut() {
-  console.log("Signing Out");
   firebase.auth().signOut();
 }
 
@@ -37,24 +30,24 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 
-function loggedIn(user) {
-    currentUser = user;
+function loggedIn(currentUser) {
+    console.log(currentUser)
+    setLoggedInUserFromLocalStorage(currentUser);
     showAuthButtons(false);
     renderUserInfo(currentUser.displayName, currentUser.photoURL)
-    console.log(currentUser)
-    console.log(currentUser.email);
 }
 
 function loggedOut(user) {
-    currentUser = "";
+    removeLoggedInUserFromLocalStorage();
     showAuthButtons(true);
-    console.log(currentUser.email);
 }
 
 function renderUserInfo(displayName, photoURL) {
     const loggedUserLink = document.getElementById("logged-user-name");
     loggedUserLink.children[0].src = !photoURL ? "./assets/images/empty-profile-picture.png" : photoURL;
     loggedUserLink.children[1].textContent = displayName;
+    btnLoginCloseModal.click(); // close the login modal
+    document.getElementById("logged-user-image-comment").src = !photoURL ? "./assets/images/empty-profile-picture.png" : photoURL;
 }
 
 function showAuthButtons(show) {
