@@ -5,6 +5,12 @@
   max-width: 500px;
 }
 
+.navbar {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
 .tab-panel {
   display: flex;
   height: 50px;
