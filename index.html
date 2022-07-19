@@ -258,25 +258,25 @@
           </div>
         </article>
 
-        <article class="media m-6">
+        <form id="form-post-comment" class="media m-6">
           <figure class="media-left">
             <p class="image is-64x64">
-              <img src="https://bulma.io/images/placeholders/128x128.png">
+              <img id="logged-user-image-comment" src="https://bulma.io/images/placeholders/128x128.png">
             </p>
           </figure>
           <div class="media-content">
             <div class="field">
               <p class="control">
-                <textarea class="textarea" placeholder="Add a comment..."></textarea>
+                <textarea id="text-area-comment" class="textarea" placeholder="Add a comment..."></textarea>
               </p>
             </div>
             <div class="field">
               <p class="control">
-                <button class="button">Post comment</button>
+                <button type="submit" class="button">Post comment</button>
               </p>
             </div>
           </div>
-        </article>
+        </form>
       </div>
     </div>
   </div>
@@ -475,7 +475,12 @@
   <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous"></script>
+    
+  <script src="./assets/javascript/configs/firebase-config.js"></script>
   <script src="./assets/javascript/authentication.js"></script>
+  <script src="./assets/javascript/comment.js"></script>
+
   <script src="./assets/javascript/script.js"></script>
 </body>
 
