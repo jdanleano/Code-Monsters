@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/Images/favicon.ico">
+    <title>CSS Course | Code Monsters</title>
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="./index.html">
+                <img src="./assets/Images/favicon.ico" width="30" height="30">
+            </a>
+
+            <a id="burger-button" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start" id="navBarSection">
+                <a class="navbar-item" href="./index.html">
+                    Home
+                </a>
+
+                <a class="navbar-item" href="./index.html#courses">
+                    Courses
+                </a>
+
+                <a class="navbar-item">
+                    Community
+                </a>
+
+                <a class="navbar-item">
+                    Notes
+                </a>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        More
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            About Us
+                        </a>
+                        <a class="navbar-item" href="./contactus.html">
+                            Contact Us
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">
+                            Report an issue
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Search Bar, should be connected to youtube API -->
+            <div class="field has-addons m-4">
+                <div class="control" id="search-text">
+                    <input id="search-input" class="input is-hovered input is-fullwidth" type="text"
+                        placeholder="Search for Tutorials">
+                </div>
+                <div class="control">
+                    <a id="search-button" class="button is-info">Search</a>
+                </div>
+            </div>
+
+            <!-- end of search Bar -->
+
+            <!-- Login / Sign Up (Use Firebase API) -->
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons" id="auth-buttons">
+                        <a class="button is-primary" id="btn-show-signup-modal" data-target="modal-signup">
+                            <strong>Sign up</strong>
+                        </a>
+                        <a class="button" id="btn-show-login-modal" data-target="modal-login">
+                            Log in
+                        </a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable" id="logged-user-dropdown">
+                    <a class="navbar-link" id="logged-user-name">
+                        <img src="./assets/images/empty-profile-picture.png" referrerpolicy="no-referrer"> <span>Dummy
+                            user</span>
+                    </a>
+
+                    <div class="navbar-dropdown is-right">
+                        <a class="navbar-item">
+                            My Profile
+                        </a>
+                        <a class="navbar-item" href="./contactus.html">
+                            Settings
+                        </a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item" id="auth-logout-link">
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- End of Nav Bar -->
+
+    <!-- NOW PLAYING -->
+    <section class="columns section level-item has-text-centered"></section>
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-parent">
+            <div class="tile is-parent">
+                <div class="tile is-child box">
+                    <p class="title is-3 text-center" style="text-align: center;">CSS</p>
+                    <p class="title is-4 text-left" style="text-align: left;">CSS stands for Cascading Style Sheets. It
+                        describes how HTML elements are to be displayed on screen, paper, or in other media. CSS saves a
+                        lot of work. It can control the layout of multiple web pages all at once</p>
+                    <!-- This is where the actual NOW PLAYING tile starts -Joe -->
+                    <div id="embed-container" class="container is-flex is-justify-content-center"></div>
+                    <div id="video-event-delegate" class="card ml-6 mr-6 mt-0 mb-0">
+
+                        <div id="youtube-results" class="card-image is-flex is-flex-direction-row"></div>
+                        <div id="vimeo-results" class="card-image is-flex is-flex-direction-row"></div>
+                       
+                        <div class="card-image is-flex is-justify-content-center"><iframe width="560" height="315" src="https://www.youtube.com/embed/yfoY53QXEnI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        
+                        <div class="tab-panel ml-6 mr-6 mt-4 mb-0">
+                            <a href="">NOTES</a>
+                            <a href="">REVIEWS</a>
+                            <a href="">LEARNING TOOLS</a>
+                        </div>
+
+                        <!-- <article class="media m-6">
+                            <figure class="media-left">
+                                <p class="image is-64x64">
+                                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <strong>Alvin Pollard</strong>
+                                        <br>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus,
+                                        nec
+                                        ultricies elit
+                                        blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc
+                                        in
+                                        tempus turpis.
+                                        <br>
+                                        <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+                                    </p>
+                                </div>
+
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-48x48">
+                                            <img src="https://bulma.io/images/placeholders/96x96.png">
+                                        </p>
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p>
+                                                <strong>Solomon Dorsey</strong>
+                                                <br>
+                                                Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque
+                                                habitant
+                                                morbi tristique senectus
+                                                et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a
+                                                nulla
+                                                sagittis, a lobortis leo
+                                                feugiat.
+                                                <br>
+                                                <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                                            </p>
+                                        </div>
+
+                                        <article class="media">
+                                            Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu lorem
+                                            cursus
+                                            ullamcorper sit amet nec
+                                            massa.
+                                        </article>
+
+                                        <article class="media">
+                                            Morbi vitae diam et purus tincidunt porttitor vel vitae augue. Praesent
+                                            malesuada
+                                            metus sed pharetra
+                                            euismod. Cras tellus odio, tincidunt iaculis diam non, porta aliquet tortor.
+                                        </article>
+                                    </div>
+                                </article>
+
+                                <article class="media">
+                                    <figure class="media-left">
+                                        <p class="image is-48x48">
+                                            <img src="https://bulma.io/images/placeholders/96x96.png">
+                                        </p>
+                                    </figure>
+                                    <div class="media-content">
+                                        <div class="content">
+                                            <p>
+                                                <strong>Joseph Leano </strong>
+                                                <br>
+                                                Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas
+                                                varius
+                                                felis sit amet magna
+                                                vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis
+                                                in
+                                                faucibus orci luctus et
+                                                ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
+                                                <br>
+                                                <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        </article> -->
+
+                        <article class="media m-6">
+                            <figure class="media-left">
+                                <p class="image is-64x64">
+                                    <img src="https://bulma.io/images/placeholders/128x128.png">
+                                </p>
+                            </figure>
+                            <div class="media-content pb-4">
+                                <div class="field">
+                                    <p class="control">
+                                        <textarea class="textarea" placeholder="Add a comment..."></textarea>
+                                    </p>
+                                </div>
+                                <div class="field">
+                                    <p class="control">
+                                        <button class="button">Post comment</button>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+            <script src="./assets/javascript/authentication.js"></script>
+            <script src="./assets/javascript/script.js"></script>
+</body>
+
+</html>
