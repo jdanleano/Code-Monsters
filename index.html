@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
-  <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="./assets/Images/favicon.ico">
   <title>Code Monsters</title>
 </head>
 
@@ -18,7 +18,7 @@
   <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <a class="navbar-item" href="https://bulma.io">
-        <img src="./assets/images/favicon.ico" width="30" height="30">
+        <img src="./assets/Images/favicon.ico" width="30" height="30">
       </a>
 
       <a id="burger-button" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
@@ -31,11 +31,11 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start" id="navBarSection">
-        <a class="navbar-item">
+        <a class="navbar-item" href="#landing">
           Home
         </a>
 
-        <a class="navbar-item">
+        <a class="navbar-item" href="#courses">
           Courses
         </a>
 
@@ -117,7 +117,7 @@
   <!-- Landing Page -->
   <section id="landing">
     <header>
-      <img src="./assets/images/favicon.ico" alt="">
+      <img src="./assets/Images/favicon.ico" alt="">
       <p class="title is-1 has-text-white shadow-text">Code Monsters</p>
       <p class="subtitle is-2 has-text-white shadow-text">Where you can learn and code like a beast</p>
     </header>
@@ -130,25 +130,27 @@
   <!-- Added Tiles Here -Joe -->
   <div class="tile is-ancestor">
     <div class="tile is-3 is-vertical is-parent">
-      <p class="title is-4 text-center" style="text-align: center;">Recently Viewed</p>
-      <div class="tile is-3 is-vertical is-child" id="recent-viewed">
+      <div class="is-child box">
+        <p class="title is-4 text-center" style="text-align: center;" id="recent-viewed">Recently Viewed</p>
+          <div class="tile is-4 is-vertical is-child" id="recent-viewed">
 
-        <!-- <div class="tile is-child box">
-        <p class="title">One</p>
-        <img src="https://bulma.io/images/placeholders/1280x960.png">
-      </div>
-      <div class="tile is-child box">
-        <p class="title">Two</p>
-        <img src="https://bulma.io/images/placeholders/1280x960.png">
-      </div>
-      <div class="tile is-child box">
-        <p class="title">Three</p>
-        <img src="https://bulma.io/images/placeholders/1280x960.png">
-      </div>
-      <div class="tile is-child box">
-        <p class="title">Four</p>
-        <img src="https://bulma.io/images/placeholders/1280x960.png">
-      </div> -->
+            <!-- <div class="tile is-child box">
+                      <p class="title">One</p>
+                      <img src="https://bulma.io/images/placeholders/1280x960.png">
+                      </div>
+                      <div class="tile is-child box">
+                      <p class="title">Two</p>
+                      <img src="https://bulma.io/images/placeholders/1280x960.png">
+                      </div>
+                      <div class="tile is-child box">
+                      <p class="title">Three</p>
+                      <img src="https://bulma.io/images/placeholders/1280x960.png">
+                      </div>
+                      <div class="tile is-child box">
+                      <p class="title">Four</p>
+                      <img src="https://bulma.io/images/placeholders/1280x960.png">
+                  </div> -->
+          </div>
       </div>
     </div>
     <div class="tile is-parent">
@@ -282,7 +284,7 @@
 
   <!-- Category Section (Use Youtube API) -->
   <section class="section level-item has-text-centered">
-    <h3 class="title">COURSES</h3>
+    <h3 class="title" id="courses">COURSES</h3>
   </section>
   <div class="buttons level-item has-text-centered buttons are-medium is-rounded">
     <button class="button is-primary is-light">HTML</button>
