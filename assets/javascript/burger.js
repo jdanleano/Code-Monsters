@@ -1,5 +1,6 @@
-//Find and store Hamburger Button element
+//Variables
 var myBurgerButton = document.querySelector("#burger-button");
+var myNavbar = document.querySelector("#navbarBasicExample");
 
 //Shows/Hides Navbar on mobile
 function toggleNavbar() {
