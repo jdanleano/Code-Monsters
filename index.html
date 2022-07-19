@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/style.css">
   <link rel="icon" type="image/x-icon" href="./assets/Images/favicon.ico">
-  <title>Home | Code Monsters</title>
+  <title>Code Monsters</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
   <!-- Navigation Bar -->
   <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="./index.html">
+      <a class="navbar-item" href="https://bulma.io">
         <img src="./assets/Images/favicon.ico" width="30" height="30">
       </a>
 
@@ -186,77 +186,27 @@
           <a href="">LEARNING TOOLS</a>
         </div>
 
-        <article class="media m-6">
-          <figure class="media-left">
-            <p class="image is-64x64">
-              <img src="https://bulma.io/images/placeholders/128x128.png">
-            </p>
-          </figure>
-          <div class="media-content">
-            <div class="content">
-              <p>
-                <strong>Alvin Pollard</strong>
-                <br>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit
-                blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
-                <br>
-                <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+        <div id="comment-list">
+          <!-- <article class="media m-6">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img src="https://bulma.io/images/placeholders/128x128.png">
               </p>
+            </figure>
+            <div class="media-content">
+                <div class="content">
+                  <p>
+                    <strong>Alvin Pollard</strong>
+                    <br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit
+                    blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                    <br>
+                    <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+                  </p>
+                </div>
             </div>
-
-            <article class="media">
-              <figure class="media-left">
-                <p class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png">
-                </p>
-              </figure>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>Solomon Dorsey</strong>
-                    <br>
-                    Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus
-                    et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo
-                    feugiat.
-                    <br>
-                    <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
-                  </p>
-                </div>
-
-                <article class="media">
-                  Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu lorem cursus ullamcorper sit amet nec
-                  massa.
-                </article>
-
-                <article class="media">
-                  Morbi vitae diam et purus tincidunt porttitor vel vitae augue. Praesent malesuada metus sed pharetra
-                  euismod. Cras tellus odio, tincidunt iaculis diam non, porta aliquet tortor.
-                </article>
-              </div>
-            </article>
-
-            <article class="media">
-              <figure class="media-left">
-                <p class="image is-48x48">
-                  <img src="https://bulma.io/images/placeholders/96x96.png">
-                </p>
-              </figure>
-              <div class="media-content">
-                <div class="content">
-                  <p>
-                    <strong>Joseph Leano </strong>
-                    <br>
-                    Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna
-                    vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et
-                    ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
-                    <br>
-                    <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
-                  </p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </article>
+          </article> -->
+        </div>
 
         <form id="form-post-comment" class="media m-6">
           <figure class="media-left">
@@ -287,12 +237,12 @@
     <h3 class="title" id="courses">COURSES</h3>
   </section>
   <div class="buttons level-item has-text-centered buttons are-medium is-rounded">
-    <a class="mx-2" href="./htmlpage.html"><button class="button is-primary is-light">HTML</button></a>
-    <a class="mx-2" href="./csspage.html"><button class="button is-link is-light">CSS</button></a>
-    <a class="mx-2" href="./javascriptpage.html"><button class="button is-info is-light">JAVASCRIPT</button></a>
-    <a class="mx-2" href="./pythonpage.html"><button class="button is-success is-light">PYTHON</button></a>
-    <a class="mx-2" href="./reactpage.html"><button class="button is-warning is-light">REACT</button></a>
-    <a class="mx-2" href="./awspage.html"><button class="button is-danger is-light">AWS</button></a>
+    <button class="button is-primary is-light">HTML</button>
+    <button class="button is-link is-light">CSS</button>
+    <button class="button is-info is-light">JAVASCRIPT</button>
+    <button class="button is-success is-light">PYTHON</button>
+    <button class="button is-warning is-light">REACT</button>
+    <button class="button is-danger is-light">AWS</button>
   </div>
 
   <!-- Notes (Local Storage) Section -->
@@ -480,7 +430,7 @@
   <script src="./assets/javascript/configs/firebase-config.js"></script>
   <script src="./assets/javascript/authentication.js"></script>
   <script src="./assets/javascript/comment.js"></script>
-  <script src="./assets/javascript/burger.js"></script>
+
   <script src="./assets/javascript/script.js"></script>
 </body>
 

@@ -18,6 +18,7 @@ var myVimeoCont = document.querySelector("#vimeo-results");
 var myResultsContainer = document.querySelector("#video-event-delegate");
 var myEmbedContainer = document.querySelector("#embed-container");
 var myNavbar = document.querySelector("#navbarBasicExample")
+var myBurgerButton = document.querySelector("#burger-button")
 var ytArray = [];
 var vimeoArray = [];
 var myRecentlyViewedArray = [];
@@ -121,7 +122,7 @@ function callYoutubeAPI(query) {
     .then((result) => {
       return result.json();
     }).then((data) => {
-      console.log(data)
+      // console.log(data)
       for (var i = 0; i < data.items.length; i++) {
         var ytObject = createResultObject(data.items[i].snippet.thumbnails.high.url, data.items[i].snippet.title, ("https://www.youtube.com/watch?v=" + data.items[i].id.videoId), false, ("https://www.youtube.com/embed/" + data.items[i].id.videoId), myYoutubeCont)
         addToArray(false, ytObject)
@@ -139,7 +140,7 @@ function callVimeoAPI(query) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
+      // console.log(data);
       for (var i = 0; i < data.data.length; i++) {
         // Sometimes the embed link returns undefined, look into vimeo api and see if there is a filter in case some videos don't allow embedding.
         var vimeoObject = createResultObject(data.data[i].pictures.sizes[1].link, data.data[i].name, data.data[i].link, true, data.data[i].embed.html, myVimeoCont)
@@ -341,15 +342,16 @@ function getEmbedVideo(video) {
   if (videoId[0] === "vimeo") {
     var myVimeoEmbed = vimeoArray[videoId[1]].embed;
     myFoundVideo = vimeoArray[videoId[1]];
-    console.log(myFoundVideo)
     myEmbed.setAttribute("src", vimeoEmbed(myVimeoEmbed));
   } else {
     myFoundVideo = ytArray[videoId[1]];
     myEmbed.setAttribute("src", myFoundVideo.embed);
   }
-
+  console.log(myFoundVideo.link)
+  myEmbed.setAttribute("data-link", myFoundVideo.link);
   myEmbedContainer.appendChild(myEmbed);
   recentlyViewed(myFoundVideo)
+  getCommentsByVideoLink(myFoundVideo, true)
 }
 
 
@@ -384,3 +386,10 @@ if(isLocalStorage()){
 // Eventlistener for search button
 searchButton.addEventListener("click", findVideos)
 
+//Shows/Hides Navbar on mobile
+function toggleNavbar() {
+  myNavbar.classList.toggle("is-active");
+}
+
+//Event listener for Burger Button
+myBurgerButton.addEventListener("click", toggleNavbar)
