@@ -23,6 +23,8 @@ var ytArray = [];
 var vimeoArray = [];
 var myRecentlyViewedArray = [];
 var myRecentlyViewed = document.querySelector("#recent-viewed")
+var myNowPlayingContainer = document.querySelector("#now-playing");
+var myRecentlyViewedContainer = document.querySelector("#recently-viewed-container");
 
 //Create Bulma Card
 function createCard(imageURL, title, source, index) {
@@ -115,6 +117,12 @@ function createResultObject(image, name, link, vimeo, embed, cont) {
   return myObject;
 }
 
+// Show NowPlaying and RecentlyViewed Containers
+function showNowPlayingAndRecentlyViewed(){
+myNowPlayingContainer.classList.remove("is-hidden");
+myRecentlyViewedContainer.classList.remove("is-hidden");
+}
+
 
 // Access Youtube API for User searches
 function callYoutubeAPI(query) {
@@ -187,6 +195,7 @@ function findVideos() {
   var myFormattedQuery = formatQuery(myQuery);
   callVimeoAPI(myFormattedQuery);
   callYoutubeAPI(myFormattedQuery);
+  showNowPlayingAndRecentlyViewed();
 }
 
 
