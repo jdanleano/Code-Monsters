@@ -18,7 +18,6 @@ var myVimeoCont = document.querySelector("#vimeo-results");
 var myResultsContainer = document.querySelector("#video-event-delegate");
 var myEmbedContainer = document.querySelector("#embed-container");
 var myNavbar = document.querySelector("#navbarBasicExample")
-var myBurgerButton = document.querySelector("#burger-button")
 var ytArray = [];
 var vimeoArray = [];
 var myRecentlyViewedArray = [];
@@ -385,10 +384,3 @@ if(isLocalStorage()){
 // Eventlistener for search button
 searchButton.addEventListener("click", findVideos)
 
-//Shows/Hides Navbar on mobile
-function toggleNavbar() {
-  myNavbar.classList.toggle("is-active");
-}
-
-//Event listener for Burger Button
-myBurgerButton.addEventListener("click", toggleNavbar)
