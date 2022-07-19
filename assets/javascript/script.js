@@ -21,6 +21,7 @@ var myNavbar = document.querySelector("#navbarBasicExample")
 var myBurgerButton = document.querySelector("#burger-button")
 var ytArray = [];
 var vimeoArray = [];
+var myRecentlyViewed = document.querySelector("#recent-viewed")
 
 //Create Bulma Card
 function createCard(imageURL, title, source, index) {
@@ -189,28 +190,61 @@ function findVideos() {
 
 
 // Clear Embed container
-function clearEmbedContainer(){
-  if(myEmbedContainer.children.length > 0){
+function clearEmbedContainer() {
+  if (myEmbedContainer.children.length > 0) {
     myEmbedContainer.removeChild(myEmbedContainer.children[0]);
   }
 }
 
 
 // Clear Arrays, Embed and Search Containers
-function clearAllSearchRelated(){
-  for(var i = 0; i < 5; i++){
+function clearAllSearchRelated() {
+  for (var i = 0; i < 5; i++) {
     console.log(myYoutubeCont.children.length)
-    if(myYoutubeCont.children.length > 0){
+    if (myYoutubeCont.children.length > 0) {
       myYoutubeCont.removeChild(myYoutubeCont.firstChild);
       console.log(myYoutubeCont.children.length)
     }
-    if(myVimeoCont.children.length > 0){
+    if (myVimeoCont.children.length > 0) {
       myVimeoCont.removeChild(myVimeoCont.firstChild);
     }
   }
   ytArray.length = 0;
   vimeoArray.length = 0;
   clearEmbedContainer();
+}
+
+//Check whether local storage exists or not 
+function isLocalStorage() {
+  if (localStorage.getItem("recentlyViewed") !== null) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function addVideo(video) {
+  var myRecent = createCard(video.img, video.name, video.vimeo,) //Get index from other function
+  myRecentlyViewed.appendChild(myRecent)
+}
+
+//Add to recently viewed
+function recentlyViewed(video) {
+  var tempViewedArray = [];
+  if (isLocalStorage()) {
+    var existingStorage = JSON.parse(localStorage.getItem("recentlyViewed"))
+    if (existingStorage.contains(video)) {
+      //call fucntion to clear recent container
+      for (var i = 0; i < existingStorage.length; i++) {
+        addVideo(existing[i])
+      }
+    }
+  }
+  else {
+    tempViewedArray.push(video)
+    localStorage.setItem("recentlyViewed", JSON.stringify(tempViewedArray))
+    addVideo(video)
+  }
 }
 
 
@@ -229,11 +263,15 @@ function getEmbedVideo(video) {
     myEmbed.setAttribute("src", vimeoEmbed(myFoundVideo));
   } else {
     myFoundVideo = ytArray[videoId[1]];
-    myEmbed.setAttribute("src", ytArray[videoId[1]].embed);
+    myEmbed.setAttribute("src", myFoundVideo.embed);
   }
 
   myEmbedContainer.appendChild(myEmbed);
+  recentlyViewed(myFoundVideo)
 }
+
+
+
 
 
 // Add Event Delegate for video results
@@ -253,14 +291,8 @@ myResultsContainer.onclick = function (event) {
 
 // Local Storage for Favorites, Recently Viewed, Notes,
 //Store four recent videos in local storage
-//Check whether local storage exists or not 
-function isLocalStorage() {
-  if (localStorage.getItem("recentlyViewed") !== null) {
-    return true;
-  } else {
-    return false;
-  }
-}
+
+
 
 // Allows the user to press ENTER after typing their search query to execute the search.
 myInput.addEventListener("keypress", function (event) {
