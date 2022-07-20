@@ -38,8 +38,10 @@ AS Someone who wants to learn how to code I want a website that gathers as many 
 
 ## 📷 <span style="color:#FFFD82">Screenshots</span> 
 
-![Completed Project01 Functionality Example 1](./assets/images/Project01_shot01.PNG)
-![Completed Project01 Functionality Example 2](./assets/images/Project01_shot02.PNG)
+![Completed Project01 Functionality Example 1](./assets/Images/Project01_shot01.PNG)
+![Completed Project01 Functionality Example 2](./assets/Images/Project01_shot02.PNG)
+![Completed Project01 Functionality Example 2](./assets/Images/Project01_shot03.PNG)
+![Completed Project01 Functionality Example 2](./assets/Images/Project01_shot04.PNG)
 
 ---
 
