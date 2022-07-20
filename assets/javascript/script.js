@@ -25,6 +25,8 @@ var myRecentlyViewedArray = [];
 var myRecentlyViewed = document.querySelector("#recent-viewed")
 var myNowPlayingContainer = document.querySelector("#now-playing");
 var myRecentlyViewedContainer = document.querySelector("#recently-viewed-container");
+var myYTLoader = document.querySelector("#yt-loader");
+var myVLoader =document.querySelector("#v-loader");
 
 //Create Bulma Card
 function createCard(imageURL, title, source, index) {
@@ -123,6 +125,19 @@ myNowPlayingContainer.classList.remove("is-hidden");
 myRecentlyViewedContainer.classList.remove("is-hidden");
 }
 
+// Show/Hide Loader
+function showOrHideLoader(id){
+  switch(id){
+    case 'yt':
+      myYTLoader.classList.toggle("is-active");
+      break;
+    case 'v':
+      myVLoader.classList.toggle("is-active");
+      break;
+    default: console.log("Something went wrong!");
+    }
+}
+
 
 // Access Youtube API for User searches
 function callYoutubeAPI(query) {
@@ -136,6 +151,7 @@ function callYoutubeAPI(query) {
         addToArray(false, ytObject)
         ytObject.cont.appendChild(createCard(ytObject.img, ytObject.name, "yt", i))
       }
+      showOrHideLoader("yt");
     })
 }
 
@@ -155,6 +171,7 @@ function callVimeoAPI(query) {
         addToArray(true, vimeoObject)
         vimeoObject.cont.appendChild(createCard(vimeoObject.img, vimeoObject.name, "vimeo", i))
       }
+      showOrHideLoader("v");
     })
 }
 
@@ -193,7 +210,9 @@ function findVideos() {
   clearAllSearchRelated();
   var myQuery = myInput.value;
   var myFormattedQuery = formatQuery(myQuery);
+  showOrHideLoader("v");
   callVimeoAPI(myFormattedQuery);
+  showOrHideLoader("yt");
   callYoutubeAPI(myFormattedQuery);
   showNowPlayingAndRecentlyViewed();
 }
