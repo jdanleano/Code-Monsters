@@ -1,8 +1,10 @@
-/* Look into responsive design */
-
 #search-text {
   width: 25vw;
   max-width: 500px;
+}
+
+.columns{
+  margin-right: 0px;
 }
 
 .navbar {
@@ -90,3 +92,4 @@ section#landing {
     opacity: 1;
     z-index: 1;
 }
+
