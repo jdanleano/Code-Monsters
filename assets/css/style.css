@@ -62,3 +62,31 @@
 section#landing {
   background: url(https://images.pexels.com/photos/113850/pexels-photo-113850.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1) no-repeat center center/cover;
 }
+
+.loader-wrapper {
+  position: absolute;
+  top: 10%;
+  left: 41.5%;
+  height: 80%;
+  width: 80%;
+  /* background: rgb(255, 255, 255); */
+  opacity: 0;
+  z-index: -1;
+  transition: opacity .3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.loader {
+    height: 200px;
+    width: 200px;
+    animation: spinAround 5s infinite linear;
+    border: 0px;
+  }
+
+.is-active {
+    opacity: 1;
+    z-index: 1;
+}

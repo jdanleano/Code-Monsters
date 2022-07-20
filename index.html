@@ -182,9 +182,14 @@
         <!-- This is where the actual NOW PLAYING tile starts -Joe -->
         <div id="embed-container" class="container is-flex is-justify-content-center"></div>
         <div id="video-event-delegate" class="card ml-6 mr-6 mt-0 mb-0">
-
-          <div id="youtube-results" class="card-image is-flex is-flex-direction-row"></div>
-          <div id="vimeo-results" class="card-image is-flex is-flex-direction-row"></div>
+          <div>
+            <img src="./assets/images/favicon.ico" id="yt-loader" class="loader is-loading loader-wrapper"></img>
+            <div id="youtube-results" class="card-image is-flex is-flex-direction-row"></div>
+          </div>
+          <div>
+            <img src="./assets/images/favicon.ico" id="v-loader" class="loader is-loading loader-wrapper"></img>
+            <div id="vimeo-results" class="card-image is-flex is-flex-direction-row"></div>
+          </div>
           <!-- <figure class="image is-3by2">
               <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
               <i class="fa-thin fa-arrows-retweet"></i>
