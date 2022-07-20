@@ -171,6 +171,9 @@ section#landing {
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 
 @media only screen and (min-width: 990px) and (max-width: 1499px) and (orientation: landscape) {
+  .is-flex{
+    flex-wrap:wrap
+    }
   .tab-panel{
     justify-content: center;
   }
