@@ -34,9 +34,32 @@
                     Home
                 </a>
 
-                <a class="navbar-item" href="./index.html#courses">
-                    Courses
-                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        Courses
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item" href="./htmlpage.html">
+                            HTML
+                        </a>
+                        <a class="navbar-item" href="./csspage.html">
+                            CSS
+                        </a>
+                        <a class="navbar-item" href="./javascriptpage.html">
+                            Javascript
+                        </a>
+                        <a class="navbar-item" href="./pythonpage.html">
+                            Python
+                        </a>
+                        <a class="navbar-item" href="./reactpage.html">
+                            React
+                        </a>
+                        <a class="navbar-item" href="./awspage.html">
+                            AWS
+                        </a>
+                    </div>
+                </div>
 
                 <a class="navbar-item">
                     Community
@@ -119,7 +142,11 @@
 
                         <div id="youtube-results" class="card-image is-flex is-flex-direction-row"></div>
                         <div id="vimeo-results" class="card-image is-flex is-flex-direction-row"></div>
-                        <div class="card-image is-flex is-justify-content-center"><iframe width="560" height="315" src="https://www.youtube.com/embed/PkZNo7MFNFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+                        <div class="card-image is-flex is-justify-content-center"><iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/PkZNo7MFNFg" title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe></div>
 
 
                         <div class="tab-panel ml-6 mr-6 mt-4 mb-0">
@@ -239,12 +266,18 @@
                 </div>
             </div>
 
+            <!-- Recently Viewed Videos Section (Local Storage) -->
             <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
             <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
             <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+                integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+                crossorigin="anonymous"></script>
+            <script src="./assets/javascript/configs/firebase-config.js"></script>
             <script src="./assets/javascript/authentication.js"></script>
-            <script src="./assets/javascript/burger.js"></script>
+            <script src="./assets/javascript/comment.js"></script>
             <script src="./assets/javascript/script.js"></script>
+            <script src="./assets/javascript/burger.js"></script>
 </body>
 
 </html>
