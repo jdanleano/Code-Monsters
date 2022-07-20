@@ -45,9 +45,9 @@ AS Someone who wants to learn how to code I want a website that gathers as many 
 
 ## 🎯 <span style="color:#FFFD82">Deployment</span>
 
-Website: https://jdanleano.github.io/East-Mountain-Monsters/
+Website: https://jdanleano.github.io/Code-Monsters/
 
-Repository: https://github.com/jdanleano/East-Mountain-Monsters
+Repository: https://github.com/jdanleano/Code-Monsters
 
 ---
 
