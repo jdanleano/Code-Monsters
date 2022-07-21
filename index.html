@@ -14,147 +14,147 @@
 
 <body>
   <div id="content-wrapper">
-  <!-- Navigation Bar -->
-  <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <a class="navbar-item" href="./index.html">
-        <img src="./assets/Images/textLogoNav.png" width="200" height="30">
-      </a>
-
-      <a id="burger-button" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-        data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start" id="navBarSection">
-        <a class="navbar-item" href="#landing">
-          Home
+    <!-- Navigation Bar -->
+    <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="./index.html">
+          <img src="./assets/Images/textLogoNav.png" width="200" height="30">
         </a>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Courses
+        <a id="burger-button" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start" id="navBarSection">
+          <a class="navbar-item" href="#landing">
+            Home
           </a>
 
-          <div class="navbar-dropdown">
-            <a class="navbar-item" href="./htmlpage.html">
-              HTML
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Courses
             </a>
-            <a class="navbar-item" href="./csspage.html">
-              CSS
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item" href="./htmlpage.html">
+                HTML
+              </a>
+              <a class="navbar-item" href="./csspage.html">
+                CSS
+              </a>
+              <a class="navbar-item" href="./javascriptpage.html">
+                Javascript
+              </a>
+              <a class="navbar-item" href="./pythonpage.html">
+                Python
+              </a>
+              <a class="navbar-item" href="./reactpage.html">
+                React
+              </a>
+              <a class="navbar-item" href="./awspage.html">
+                AWS
+              </a>
+            </div>
+          </div>
+
+          <a class="navbar-item">
+            Community
+          </a>
+
+          <a class="navbar-item">
+            Notes
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
             </a>
-            <a class="navbar-item" href="./javascriptpage.html">
-              Javascript
-            </a>
-            <a class="navbar-item" href="./pythonpage.html">
-              Python
-            </a>
-            <a class="navbar-item" href="./reactpage.html">
-              React
-            </a>
-            <a class="navbar-item" href="./awspage.html">
-              AWS
-            </a>
+
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About Us
+              </a>
+              <a class="navbar-item" href="./contactus.html">
+                Contact Us
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item">
+                Report an issue
+              </a>
+            </div>
           </div>
         </div>
+        <!-- Search Bar, should be connected to youtube API -->
 
-        <a class="navbar-item">
-          Community
-        </a>
 
-        <a class="navbar-item">
-          Notes
-        </a>
+        <!-- end of search Bar -->
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            More
-          </a>
-
-          <div class="navbar-dropdown">
-            <a class="navbar-item">
-              About Us
+        <!-- Login / Sign Up (Use Firebase API) -->
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons" id="auth-buttons">
+              <a class="button is-primary" id="btn-show-signup-modal" data-target="modal-signup">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button" id="btn-show-login-modal" data-target="modal-login">
+                Log in
+              </a>
+            </div>
+          </div>
+          <div class="navbar-item has-dropdown is-hoverable" id="logged-user-dropdown">
+            <a class="navbar-link" id="logged-user-name">
+              <img src="./assets/Images/empty-profile-picture.png" referrerpolicy="no-referrer"> <span>Dummy user</span>
             </a>
-            <a class="navbar-item" href="./contactus.html">
-              Contact Us
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Report an issue
-            </a>
+
+            <div class="navbar-dropdown is-right">
+              <a class="navbar-item">
+                My Profile
+              </a>
+              <a class="navbar-item" href="./contactus.html">
+                Settings
+              </a>
+              <hr class="navbar-divider">
+              <a class="navbar-item" id="auth-logout-link">
+                Logout
+              </a>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Search Bar, should be connected to youtube API -->
-      
+    </nav>
+    <!-- End of Nav Bar -->
 
-      <!-- end of search Bar -->
+    <!-- Landing Page -->
 
-      <!-- Login / Sign Up (Use Firebase API) -->
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons" id="auth-buttons">
-            <a class="button is-primary" id="btn-show-signup-modal" data-target="modal-signup">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button" id="btn-show-login-modal" data-target="modal-login">
-              Log in
-            </a>
-          </div>
-        </div>
-        <div class="navbar-item has-dropdown is-hoverable" id="logged-user-dropdown">
-          <a class="navbar-link" id="logged-user-name">
-            <img src="./assets/Images/empty-profile-picture.png" referrerpolicy="no-referrer"> <span>Dummy user</span>
-          </a>
+    <section class="hero" id="landing">
 
-          <div class="navbar-dropdown is-right">
-            <a class="navbar-item">
-              My Profile
-            </a>
-            <a class="navbar-item" href="./contactus.html">
-              Settings
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item" id="auth-logout-link">
-              Logout
-            </a>
-          </div>
-        </div>
+    </section>
+    <div id="search-container" class="field has-addons">
+      <div class="control" id="search-text">
+        <input id="search-input" class="input is-hovered input is-fullwidth" type="text"
+          placeholder="Search for Tutorials">
+      </div>
+      <div class="control">
+        <a id="search-button" class="button is-info">Search</a>
       </div>
     </div>
-  </nav>
-  <!-- End of Nav Bar -->
-
-  <!-- Landing Page -->
-  
-  <section class="hero" id="landing">
-
-  </section>
-  <div id="search-container" class="field has-addons">
-    <div class="control" id="search-text">
-      <input id="search-input" class="input is-hovered input is-fullwidth" type="text"
-        placeholder="Search for Tutorials">
-    </div>
-    <div class="control">
-      <a id="search-button" class="button is-info">Search</a>
-    </div>
-  </div>
-  <!-- NOW PLAYING -->
-  <!-- <section class="columns is-10 section level-item has-text-centered">
+    <!-- NOW PLAYING -->
+    <!-- <section class="columns is-10 section level-item has-text-centered">
     <h3 class="title">NOW PLAYING</h3>
   </section> -->
-  <!-- Added Tiles Here -Joe -->
-  <div id="recently-viewed-container" class="is-hidden tile is-ancestor">
-    <div class="tile is-3 is-vertical is-parent">
-      <div class="is-child box">
-        <p class="title is-4 text-center" style="text-align: center;" id="recent-viewed">Recently Viewed</p>
-        <div class="tile is-4 is-vertical is-child" id="recent-viewed">
+    <!-- Added Tiles Here -Joe -->
+    <div id="recently-viewed-container" class="is-hidden tile is-ancestor">
+      <div class="tile is-3 is-vertical is-parent">
+        <div class="is-child box">
+          <p class="title is-4 text-center" style="text-align: center;" id="recent-viewed">Recently Viewed</p>
+          <div class="tile is-4 is-vertical is-child" id="recent-viewed">
 
-          <!-- <div class="tile is-child box">
+            <!-- <div class="tile is-child box">
                       <p class="title">One</p>
                       <img src="https://bulma.io/images/placeholders/1280x960.png">
                       </div>
@@ -170,31 +170,31 @@
                       <p class="title">Four</p>
                       <img src="https://bulma.io/images/placeholders/1280x960.png">
                   </div> -->
+          </div>
         </div>
       </div>
-    </div>
-    
-    <div id="now-playing" class="is-hidden tile is-parent">
-      <div class="tile is-child box">
-        <p class="title is-4 text-center" style="text-align: center;">Now Playing</p>
-        <!-- This is where the actual NOW PLAYING tile starts -Joe -->
-        <div id="embed-container" class="container is-flex is-justify-content-center"></div>
-        <div id="video-event-delegate" class="card ml-6 mr-6 mt-0 mb-0">
-          <div>
-            <img src="./assets/Images/favicon.ico" id="yt-loader" class="loader is-loading loader-wrapper"></img>
-            <div id="youtube-results" class="card-image is-flex is-flex-direction-row"></div>
-          </div>
-          <div>
-            <img src="./assets/Images/favicon.ico" id="v-loader" class="loader is-loading loader-wrapper"></img>
-            <div id="vimeo-results" class="card-image is-flex is-flex-direction-row is-mobile"></div>
-          </div>
-          <!-- <figure class="image is-3by2">
+
+      <div id="now-playing" class="is-hidden tile is-parent">
+        <div class="tile is-child box">
+          <p class="title is-4 text-center" style="text-align: center;">Now Playing</p>
+          <!-- This is where the actual NOW PLAYING tile starts -Joe -->
+          <div id="embed-container" class="container is-flex is-justify-content-center"></div>
+          <div id="video-event-delegate" class="card ml-6 mr-6 mt-0 mb-0">
+            <div>
+              <img src="./assets/Images/favicon.ico" id="yt-loader" class="loader is-loading loader-wrapper"></img>
+              <div id="youtube-results" class="card-image is-flex is-flex-direction-row"></div>
+            </div>
+            <div>
+              <img src="./assets/Images/favicon.ico" id="v-loader" class="loader is-loading loader-wrapper"></img>
+              <div id="vimeo-results" class="card-image is-flex is-flex-direction-row is-mobile"></div>
+            </div>
+            <!-- <figure class="image is-3by2">
               <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
               <i class="fa-thin fa-arrows-retweet"></i>
             </figure> -->
 
-        </div>
-        <!-- <div class="level-right mr-6"> //FOR LATER//
+          </div>
+          <!-- <div class="level-right mr-6"> //FOR LATER//
             <a class="level-item">
               <span class="icon is-large"><i class="fas fa-reply"></i></span>
             </a>
@@ -206,14 +206,14 @@
             </a>
           </div> -->
 
-        <div class="tab-panel ml-6 mr-6 mt-4 mb-0">
-          <a href="">NOTES</a>
-          <a href="">REVIEWS</a>
-          <a href="">LEARNING TOOLS</a>
-        </div>
+          <div class="tab-panel ml-6 mr-6 mt-4 mb-0">
+            <a href="">NOTES</a>
+            <a href="">REVIEWS</a>
+            <a href="">LEARNING TOOLS</a>
+          </div>
 
-        <div id="comment-list">
-          <!-- <article class="media m-6">
+          <div id="comment-list">
+            <!-- <article class="media m-6">
             <figure class="media-left">
               <p class="image is-64x64">
                 <img src="https://bulma.io/images/placeholders/128x128.png">
@@ -232,233 +232,238 @@
                 </div>
             </div>
           </article> -->
-        </div>
-
-        <form id="form-post-comment" class="media m-6">
-          <figure class="media-left">
-            <p class="image is-64x64">
-              <img id="logged-user-image-comment" src="https://bulma.io/images/placeholders/128x128.png">
-            </p>
-          </figure>
-          <div class="media-content">
-            <div class="field">
-              <p class="control">
-                <textarea id="text-area-comment" class="textarea" placeholder="Add a comment..."></textarea>
-              </p>
-            </div>
-            <div class="field">
-              <p class="control">
-                <button type="submit" class="button">Post comment</button>
-              </p>
-            </div>
           </div>
-        </form>
-      </div>
-    </div>
-  </div>
 
-
-  <!-- Category Section (Use Youtube API) -->
-  <section class="section level-item has-text-centered">
-    <h3 class="title" id="courses">COURSES</h3>
-  </section>
-  <div class="buttons level-item has-text-centered buttons are-medium is-rounded">
-    <a class="mx-2" href="./htmlpage.html"><button class="button is-primary is-light">HTML</button></a>
-    <a class="mx-2" href="./csspage.html"><button class="button is-link is-light">CSS</button></a>
-    <a class="mx-2" href="./javascriptpage.html"><button class="button is-info is-light">JAVASCRIPT</button></a>
-    <a class="mx-2" href="./pythonpage.html"><button class="button is-success is-light">PYTHON</button></a>
-    <a class="mx-2" href="./reactpage.html"><button class="button is-warning is-light">REACT</button></a>
-    <a class="mx-2" href="./awspage.html"><button class="button is-danger is-light">AWS</button></a>
-  </div>
-
-  <!-- Notes (Local Storage) Section -->
-
-  <!-- Recommended Videos Section (Use Youtube API) -->
-
-  <section class="section level-item has-text-centered">
-    <h3 class="title">RECOMMENDED VIDEOS</h3>
-  </section>
-  <div class="columns m-3">
-    <div class="column">
-      First video
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-3by2">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-          </figure>
+          <form id="form-post-comment" class="media m-6">
+            <figure class="media-left">
+              <p class="image is-64x64">
+                <img id="logged-user-image-comment" src="https://bulma.io/images/placeholders/128x128.png">
+              </p>
+            </figure>
+            <div class="media-content">
+              <div class="field">
+                <p class="control">
+                  <textarea id="text-area-comment" class="textarea" placeholder="Add a comment..."></textarea>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button type="submit" class="button">Post comment</button>
+                </p>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-    <div class="column">
-      Second video
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-3by2">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-          </figure>
+
+
+    <!-- Category Section (Use Youtube API) -->
+    <section class="section level-item has-text-centered">
+      <h3 class="title" id="courses">COURSES</h3>
+    </section>
+    <div class="buttons level-item has-text-centered buttons are-medium is-rounded">
+      <a class="mx-2" href="./htmlpage.html"><button class="button is-primary is-light">HTML</button></a>
+      <a class="mx-2" href="./csspage.html"><button class="button is-link is-light">CSS</button></a>
+      <a class="mx-2" href="./javascriptpage.html"><button class="button is-info is-light">JAVASCRIPT</button></a>
+      <a class="mx-2" href="./pythonpage.html"><button class="button is-success is-light">PYTHON</button></a>
+      <a class="mx-2" href="./reactpage.html"><button class="button is-warning is-light">REACT</button></a>
+      <a class="mx-2" href="./awspage.html"><button class="button is-danger is-light">AWS</button></a>
+    </div>
+
+    <!-- Notes (Local Storage) Section -->
+
+    <!-- Recommended Videos Section (Use Youtube API) -->
+
+    <section class="section level-item has-text-centered">
+      <h3 class="title">RECOMMENDED VIDEOS</h3>
+    </section>
+    <div class="columns m-3 is-flex is-flex-wrap-wrap">
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <div class="card-image is-flex is-justify-content-center"><iframe width="560" height="315"
+                src="https://www.youtube.com/embed/UB1O30fR-EE" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe></div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <div class="card-image is-flex is-justify-content-center"><iframe width="560" height="315"
+              src="https://www.youtube.com/embed/yfoY53QXEnI" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe></div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <div id="youtube-results" class="card-image is-flex is-flex-direction-row"></div>
+            <div id="vimeo-results" class="card-image is-flex is-flex-direction-row"></div>
+            <div class="card-image is-flex is-justify-content-center"><iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/PkZNo7MFNFg" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe></div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="card">
+          <div class="card-image">
+            <div class="card-image is-flex is-justify-content-center"><iframe width="560" height="315"
+              src="https://www.youtube.com/embed/Y8Tko2YC5hA" title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen></iframe></div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="column">
-      Third video
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-3by2">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-          </figure>
-        </div>
-      </div>
-    </div>
-    <div class="column">
-      Fourth video
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-3by2">
-            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
-          </figure>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
-  <div class="modal-container">
-    <!-- MODAL FOR SIGN UP PAGE -->
-    <div id="modal-signup" class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <div class="box">
-          <div class="media-content">
-            <div class="columns">
-              <div class="column">
-                <form method="POST" class="box p-5">
-                  <label class="is-block mb-4">
-                    <span class="is-block mb-2">Username</span>
-                    <input name="username" type="username" class="input" minlength="6" placeholder="(must be 6+ chars)"
-                      required />
-                  </label>
-
-                  <label class="is-block mb-4">
-                    <span class="is-block mb-2">Email address</span>
-                    <input required type="email" class="input" placeholder="eastmountainmonsters@gmail.com" />
-                  </label>
-
-                  <label class="is-block mb-4">
-                    <span class="is-block mb-2">Password</span>
-                    <input name="password" type="password" class="input" minlength="10"
-                      placeholder="(must be 10+ chars)" required />
-                  </label>
-
-                  <div class="mb-4">
-                    <label>
-                      <input type="checkbox" name="tos" value="yes" required />
-                      <span>I agree with the Terms and Conditions</span>
+    <div class="modal-container">
+      <!-- MODAL FOR SIGN UP PAGE -->
+      <div id="modal-signup" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <div class="media-content">
+              <div class="columns">
+                <div class="column">
+                  <form method="POST" class="box p-5">
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Username</span>
+                      <input name="username" type="username" class="input" minlength="6"
+                        placeholder="(must be 6+ chars)" required />
                     </label>
-                  </div>
 
-                  <div class="mb-4">
-                    <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Sign
-                      Up</button>
-                  </div>
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Email address</span>
+                      <input required type="email" class="input" placeholder="eastmountainmonsters@gmail.com" />
+                    </label>
 
-                  <div>
-                    <div class="is-size-7 has-text-right">
-                      by
-                      <a href="https://eastmountainmonsters.com/start" class="has-text-dark"
-                        target="_blank">EastMountainMonsters</a>
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Password</span>
+                      <input name="password" type="password" class="input" minlength="10"
+                        placeholder="(must be 10+ chars)" required />
+                    </label>
+
+                    <div class="mb-4">
+                      <label>
+                        <input type="checkbox" name="tos" value="yes" required />
+                        <span>I agree with the Terms and Conditions</span>
+                      </label>
                     </div>
-                  </div>
-                </form>
+
+                    <div class="mb-4">
+                      <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Sign
+                        Up</button>
+                    </div>
+
+                    <div>
+                      <div class="is-size-7 has-text-right">
+                        by
+                        <a href="https://eastmountainmonsters.com/start" class="has-text-dark"
+                          target="_blank">EastMountainMonsters</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
+            </article>
           </div>
-          </article>
         </div>
+        <button class="modal-close is-large" id="signup-modal-close" aria-label="close"></button>
       </div>
-      <button class="modal-close is-large" id="signup-modal-close" aria-label="close"></button>
-    </div>
 
-    <!-- MODAL FOR LOG IN PAGE -->
-    <div id="modal-login" class="modal">
-      <div class="modal-background"></div>
-      <div class="modal-content">
-        <div class="box">
-          <div class="media-content">
-            <div class="columns">
-              <div class="column">
-                <form id="form-login-modal" method="POST" class="box p-5">
-                  <label class="is-block mb-4">
-                    <span class="is-block mb-2">Email address</span>
-                    <input required name="email" type="email" class="input"
-                      placeholder="eastmountainmonsters@gmail.com" />
-                  </label>
+      <!-- MODAL FOR LOG IN PAGE -->
+      <div id="modal-login" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+          <div class="box">
+            <div class="media-content">
+              <div class="columns">
+                <div class="column">
+                  <form id="form-login-modal" method="POST" class="box p-5">
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Email address</span>
+                      <input required name="email" type="email" class="input"
+                        placeholder="eastmountainmonsters@gmail.com" />
+                    </label>
 
-                  <label class="is-block mb-4">
-                    <span class="is-block mb-2">Password</span>
-                    <input required name="password" type="password" class="input" placeholder="*************" />
-                  </label>
+                    <label class="is-block mb-4">
+                      <span class="is-block mb-2">Password</span>
+                      <input required name="password" type="password" class="input" placeholder="*************" />
+                    </label>
 
-                  <div class="mb-4">
-                    <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Log
-                      In</button>
-                  </div>
-
-                  <p class="is-5 has-text-centered mb-4">Login using Social Media</p>
-
-                  <div class="buttons is-centered">
-                    <a class="button is-medium is-google" id="auth-google-button">
-                      <span class="icon">
-                        <i class="fab fa-google fa-lg"></i>
-                      </span>
-                    </a>
-                    <a class="button is-medium is-facebook disabled-link" id="auth-facebook-button">
-                      <span class="icon">
-                        <i class="fab fa-facebook-f fa-lg"></i>
-                      </span>
-                    </a>
-                    <a class="button is-medium is-twitter disabled-link" id="auth-twitter-button">
-                      <span class="icon">
-                        <i class="fab fa-twitter fa-lg"></i>
-                      </span>
-                    </a>
-                    <a class="button is-medium is-github disabled-link" id="auth-github-button">
-                      <span class="icon">
-                        <i class="fab fa-github fa-lg"></i>
-                      </span>
-                    </a>
-                  </div>
-
-                  <div>
-                    <div class="is-size-7 has-text-right">
-                      by
-                      <a href="https://eastmountainmonsters.com/start" class="has-text-dark"
-                        target="_blank">EastMountainMonsters</a>
+                    <div class="mb-4">
+                      <button type="submit" class="button is-medium is-primary level-item has-text-centered px-4">Log
+                        In</button>
                     </div>
-                  </div>
-                </form>
+
+                    <p class="is-5 has-text-centered mb-4">Login using Social Media</p>
+
+                    <div class="buttons is-centered">
+                      <a class="button is-medium is-google" id="auth-google-button">
+                        <span class="icon">
+                          <i class="fab fa-google fa-lg"></i>
+                        </span>
+                      </a>
+                      <a class="button is-medium is-facebook disabled-link" id="auth-facebook-button">
+                        <span class="icon">
+                          <i class="fab fa-facebook-f fa-lg"></i>
+                        </span>
+                      </a>
+                      <a class="button is-medium is-twitter disabled-link" id="auth-twitter-button">
+                        <span class="icon">
+                          <i class="fab fa-twitter fa-lg"></i>
+                        </span>
+                      </a>
+                      <a class="button is-medium is-github disabled-link" id="auth-github-button">
+                        <span class="icon">
+                          <i class="fab fa-github fa-lg"></i>
+                        </span>
+                      </a>
+                    </div>
+
+                    <div>
+                      <div class="is-size-7 has-text-right">
+                        by
+                        <a href="https://eastmountainmonsters.com/start" class="has-text-dark"
+                          target="_blank">EastMountainMonsters</a>
+                      </div>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
+            </article>
           </div>
-          </article>
         </div>
+        <button class="modal-close is-large" id="login-modal-close" aria-label="close"></button>
       </div>
-      <button class="modal-close is-large" id="login-modal-close" aria-label="close"></button>
+
     </div>
 
+    <!-- Recently Viewed Videos Section (Local Storage) -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"></script>
+    <script src="./assets/javascript/configs/firebase-config.js"></script>
+    <script src="./assets/javascript/authentication.js"></script>
+    <script src="./assets/javascript/comment.js"></script>
+    <script src="./assets/javascript/script.js"></script>
   </div>
-
-  <!-- Recently Viewed Videos Section (Local Storage) -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-firestore.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
-    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
-    crossorigin="anonymous"></script>
-  <script src="./assets/javascript/configs/firebase-config.js"></script>
-  <script src="./assets/javascript/authentication.js"></script>
-  <script src="./assets/javascript/comment.js"></script>
-  <script src="./assets/javascript/script.js"></script>
-</div>
 </body>
 
 </html>
