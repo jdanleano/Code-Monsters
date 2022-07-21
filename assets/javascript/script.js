@@ -1,34 +1,22 @@
-// Access Youtube API to submit searches for content we want to show (ex. Javascript videos with a certain rating)
-// Added sample fetch request for Youtube videos with search "javascript tutorials english". API key is also valid, so we can keep using the API key at the end.
-// fetch("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&order=viewCount&q=javascript%20tutorial%20english&key=AIzaSyD_n80sbavNRpov43FkgTXB03jUflS96wA")
-// .then((result)=>{
-//   console.log (result.json())
-// }).then((data)=>{
-//   console.log(data)
-//   var videos = data.items
-//   for(video of videos) {
-//     document.write(video.snippet.title)
-//   }
-// })
-
-var searchButton = document.querySelector("#search-button")
+// Variables
+var searchButton = document.querySelector("#search-button");
 var myInput = document.querySelector("#search-input");
 var myYoutubeCont = document.querySelector("#youtube-results");
 var myVimeoCont = document.querySelector("#vimeo-results");
 var myResultsContainer = document.querySelector("#video-event-delegate");
 var myEmbedContainer = document.querySelector("#embed-container");
-var myNavbar = document.querySelector("#navbarBasicExample")
-var myBurgerButton = document.querySelector("#burger-button")
+var myNavbar = document.querySelector("#navbarBasicExample");
+var myBurgerButton = document.querySelector("#burger-button");
 var ytArray = [];
 var vimeoArray = [];
 var myRecentlyViewedArray = [];
-var myRecentlyViewed = document.querySelector("#recent-viewed")
+var myRecentlyViewed = document.querySelector("#recent-viewed");
 var myNowPlayingContainer = document.querySelector("#now-playing");
 var myRecentlyViewedContainer = document.querySelector("#recently-viewed-container");
 var myYTLoader = document.querySelector("#yt-loader");
-var myVLoader =document.querySelector("#v-loader");
+var myVLoader = document.querySelector("#v-loader");
 
-//Create Bulma Card
+// Create Bulma Card
 function createCard(imageURL, title, source, index) {
   var myCard = document.createElement("div");
   myCard.classList.add("card", "div-parent", "is-align-items-center");
@@ -68,33 +56,6 @@ function vimeoEmbed(str) {
   return mySecondSplit[0];
 }
 
-// Takes in an image, name, description, link and HTML container to store results from API calls
-function populateData(image, name, link, vimeo, embed, cont) {
-  var myTitleImage = document.createElement("img");
-  myTitleImage.classList.add("img-size");
-  var nameElement = document.createElement("h2");
-  var myLink = document.createElement("a");
-  var myEmbed = document.createElement("iframe");
-  var myContainer = document.createElement("div");
-  myContainer.classList.add("video-block", "is-mobile", "is-tablet");
-
-  myTitleImage.setAttribute("src", image);
-  nameElement.textContent = name;
-  myLink.setAttribute("href", link);
-  myLink.textContent = "Watch";
-  if (vimeo) {
-    myEmbed.setAttribute("src", vimeoEmbed(embed));
-  } else {
-    myEmbed.setAttribute("src", embed);
-  }
-
-  myContainer.appendChild(myTitleImage);
-  myContainer.appendChild(nameElement);
-  myContainer.appendChild(myLink);
-  myEmbedContainer.appendChild(myEmbed);
-  cont.classList.add("is-mobile")
-  cont.appendChild(myContainer);
-}
 
 // Store API data
 function addToArray(vimeo, object) {
@@ -331,8 +292,8 @@ function embedRecentVideo(recentVideo){
   var myFoundVideo;
   var recentEmbed = document.createElement("iframe");
   recentEmbed.classList.add("has-ratio");
-  recentEmbed.setAttribute("width", "1920");
-  recentEmbed.setAttribute("height", "720");
+  // recentEmbed.setAttribute("width", "960");
+  // recentEmbed.setAttribute("height", "540");
 
 
   if(videoId[0] === "true"){
@@ -364,8 +325,8 @@ function getEmbedVideo(video) {
   var myFoundVideo;
   var myEmbed = document.createElement("iframe");
   myEmbed.classList.add("has-ratio");
-  myEmbed.setAttribute("width", "1920");
-  myEmbed.setAttribute("height", "720");
+  // myEmbed.setAttribute("width", "1920");
+  // myEmbed.setAttribute("height", "720");
 
   if (videoId[0] === "vimeo") {
     var myVimeoEmbed = vimeoArray[videoId[1]].embed;
