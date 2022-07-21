@@ -153,6 +153,11 @@ section#landing {
   .tab-panel{
     justify-content: center;
   }
+  
+  iframe{
+    width: 50vw;
+    height: calc(50vw/1.78);
+  }
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -166,6 +171,11 @@ section#landing {
     .tab-panel{
       justify-content: center;
     }
+
+    iframe{
+      width: 80vw;
+      height: calc(80vw/1.78);
+    }
 }
 
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
@@ -178,5 +188,9 @@ section#landing {
     }
   .tab-panel{
     justify-content: center;
+  }
+  iframe{
+    width: 65vw;
+    height: calc(65vw/1.78);
   }
 }
