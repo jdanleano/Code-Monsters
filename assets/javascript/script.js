@@ -68,6 +68,7 @@ function addToArray(vimeo, object) {
 
 }
 
+
 // Create result object
 function createResultObject(image, name, link, vimeo, embed, cont) {
   var myObject = {
@@ -81,15 +82,17 @@ function createResultObject(image, name, link, vimeo, embed, cont) {
   return myObject;
 }
 
+
 // Show NowPlaying and RecentlyViewed Containers
-function showNowPlayingAndRecentlyViewed(){
-myNowPlayingContainer.classList.remove("is-hidden");
-myRecentlyViewedContainer.classList.remove("is-hidden");
+function showNowPlayingAndRecentlyViewed() {
+  myNowPlayingContainer.classList.remove("is-hidden");
+  myRecentlyViewedContainer.classList.remove("is-hidden");
 }
 
+
 // Show/Hide Loader
-function showOrHideLoader(id){
-  switch(id){
+function showOrHideLoader(id) {
+  switch (id) {
     case 'yt':
       myYTLoader.classList.toggle("is-active");
       break;
@@ -97,7 +100,7 @@ function showOrHideLoader(id){
       myVLoader.classList.toggle("is-active");
       break;
     default: console.log("Something went wrong!");
-    }
+  }
 }
 
 
@@ -136,6 +139,7 @@ function callVimeoAPI(query) {
       showOrHideLoader("v");
     })
 }
+
 
 // format myInput for apis
 function formatQuery(query) {
@@ -204,13 +208,14 @@ function clearAllSearchRelated() {
 }
 
 // Clear recently added videos
-function clearRecentlyAdded(){
-  for(var i = 0; i < 5; i++){
-    if(myRecentlyViewed.children.length > 0){
+function clearRecentlyAdded() {
+  for (var i = 0; i < 5; i++) {
+    if (myRecentlyViewed.children.length > 0) {
       myRecentlyViewed.removeChild(myRecentlyViewed.firstChild);
     }
   }
-} 
+}
+
 
 //Check whether local storage exists or not 
 function isLocalStorage() {
@@ -221,29 +226,33 @@ function isLocalStorage() {
   }
 }
 
+
 // Add recently viewed video to recently viewed HTML container
 function addVideo(video, index) {
   var myRecent = createCard(video.img, video.name, video.vimeo, index) //Get index from other function
   myRecentlyViewed.appendChild(myRecent)
 }
 
+
 // returns true if there is a copy of the same video in local storage 
-function checkForDuplicates(currentVideo, storageArray){
-  for(var i = 0; i < storageArray.length; i++){
-    if(currentVideo.link === storageArray[i].link){
+function checkForDuplicates(currentVideo, storageArray) {
+  for (var i = 0; i < storageArray.length; i++) {
+    if (currentVideo.link === storageArray[i].link) {
       return true;
-    } 
-  } 
+    }
+  }
   return false;
 }
 
+
 // Get recently viewed videos
-function getRecentlyViewedVideosArray(){
-  if(isLocalStorage){
+function getRecentlyViewedVideosArray() {
+  if (isLocalStorage) {
     var myArray = JSON.parse(localStorage.getItem("recentlyViewed"));
   }
   return myArray;
 }
+
 
 // Add to recently viewed
 function recentlyViewed(video) {
@@ -256,28 +265,28 @@ function recentlyViewed(video) {
       for (var i = 0; i < existingStorage.length; i++) {
         addVideo(existingStorage[i], i);
       }
-      if(tempViewedArray.length > 4){ // if the tempViewedArray is greater than 4 then remove the first video
+      if (tempViewedArray.length > 4) { // if the tempViewedArray is greater than 4 then remove the first video
         tempViewedArray.pop();
       }
       return;
-    } 
-      // Otherwise, add all of the existing videos to the tempViewedArray and then add the newest video in front.
-      for(var i = 0; i < existingStorage.length; i++) {
-        tempViewedArray.push(existingStorage[i]);
-      }
+    }
+    // Otherwise, add all of the existing videos to the tempViewedArray and then add the newest video in front.
+    for (var i = 0; i < existingStorage.length; i++) {
+      tempViewedArray.push(existingStorage[i]);
+    }
 
-      tempViewedArray.unshift(video);
+    tempViewedArray.unshift(video);
 
-      if(tempViewedArray.length > 4){ // if the tempViewedArray is greater than 4 then remove the first video
-        tempViewedArray.pop();
-        console.log("removed video: " + tempViewedArray.length);
-      }
+    if (tempViewedArray.length > 4) { // if the tempViewedArray is greater than 4 then remove the first video
+      tempViewedArray.pop();
+      console.log("removed video: " + tempViewedArray.length);
+    }
 
-      clearRecentlyAdded();
-      localStorage.setItem("recentlyViewed", JSON.stringify(tempViewedArray))
-      for(var i = 0; i < tempViewedArray.length; i++){
-        addVideo(tempViewedArray[i], i);
-      }
+    clearRecentlyAdded();
+    localStorage.setItem("recentlyViewed", JSON.stringify(tempViewedArray))
+    for (var i = 0; i < tempViewedArray.length; i++) {
+      addVideo(tempViewedArray[i], i);
+    }
   }
   else {
     tempViewedArray.push(video)
@@ -288,23 +297,20 @@ function recentlyViewed(video) {
 
 
 // Embed recent video
-function embedRecentVideo(recentVideo){
+function embedRecentVideo(recentVideo) {
   var videoId = recentVideo.split(":");
   var myFoundVideo;
   var recentEmbed = document.createElement("iframe");
   recentEmbed.classList.add("has-ratio");
-  // recentEmbed.setAttribute("width", "960");
-  // recentEmbed.setAttribute("height", "540");
 
-
-  if(videoId[0] === "true"){
+  if (videoId[0] === "true") {
     var myVimeoEmbed = getRecentlyViewedVideosArray()[videoId[1]].embed;
     myFoundVideo = getRecentlyViewedVideosArray()[videoId[1]];
     recentEmbed.setAttribute("src", vimeoEmbed(myVimeoEmbed));
-} else {
-  myFoundVideo = getRecentlyViewedVideosArray()[videoId[1]];
-  recentEmbed.setAttribute("src", myFoundVideo.embed)
-}
+  } else {
+    myFoundVideo = getRecentlyViewedVideosArray()[videoId[1]];
+    recentEmbed.setAttribute("src", myFoundVideo.embed)
+  }
   myEmbedContainer.appendChild(recentEmbed);
 }
 
@@ -313,7 +319,7 @@ function embedRecentVideo(recentVideo){
 myRecentlyViewed.onclick = function (event) {
   var selectedVideo = event.target;
 
-  if(selectedVideo.classList.contains("video-block")){
+  if (selectedVideo.classList.contains("video-block")) {
     clearEmbedContainer();
     embedRecentVideo(selectedVideo.closest(".div-parent").id)
     myNowPlayingContainer.scrollIntoView();
@@ -327,8 +333,6 @@ function getEmbedVideo(video) {
   var myFoundVideo;
   var myEmbed = document.createElement("iframe");
   myEmbed.classList.add("has-ratio");
-  // myEmbed.setAttribute("width", "1920");
-  // myEmbed.setAttribute("height", "720");
 
   if (videoId[0] === "vimeo") {
     var myVimeoEmbed = vimeoArray[videoId[1]].embed;
@@ -353,11 +357,10 @@ myResultsContainer.onclick = function (event) {
   if (videoResult.classList.contains("video-block")) {
     clearEmbedContainer();
     getEmbedVideo(videoResult.closest(".div-parent").id);
-    // window.location.href="#now-playing";
     myNowPlayingContainer.scrollIntoView();
   }
 }
-// Implement Firebase API to allow users to chat and potentially handling log in for site
+
 
 // Allows the user to press ENTER after typing their search query to execute the search.
 myInput.addEventListener("keypress", function (event) {
@@ -368,21 +371,25 @@ myInput.addEventListener("keypress", function (event) {
   }
 })
 
+
 // Check if there are RecentlyViewed videos in localstorage, if there are, load them
-if(isLocalStorage()){
+if (isLocalStorage()) {
   var myVideoArray = getRecentlyViewedVideosArray();
-  for(var i = 0; i < myVideoArray.length; i++){
+  for (var i = 0; i < myVideoArray.length; i++) {
     addVideo(myVideoArray[i], i);
   }
 }
 
+
 // Eventlistener for search button
 searchButton.addEventListener("click", findVideos)
+
 
 //Shows/Hides Navbar on mobile
 function toggleNavbar() {
   myNavbar.classList.toggle("is-active");
 }
+
 
 //Event listener for Burger Button
 myBurgerButton.addEventListener("click", toggleNavbar)
