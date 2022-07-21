@@ -4,10 +4,12 @@
 
 #search-container{
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 #search-text {
-  width: 25vw;
+  width: 50vw;
   max-width: 500px;
 }
 
@@ -143,7 +145,7 @@ section#landing {
 
 @media only screen and (max-width: 989px) and (orientation: landscape) {
   #landing{
-    margin-top:64px;
+    margin-top:25px;
   }
   .is-flex{
     flex-wrap:wrap
