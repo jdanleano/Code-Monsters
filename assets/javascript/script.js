@@ -16,6 +16,7 @@ var myRecentlyViewedContainer = document.querySelector("#recently-viewed-contain
 var myYTLoader = document.querySelector("#yt-loader");
 var myVLoader = document.querySelector("#v-loader");
 
+
 // Create Bulma Card
 function createCard(imageURL, title, source, index) {
   var myCard = document.createElement("div");
@@ -315,6 +316,7 @@ myRecentlyViewed.onclick = function (event) {
   if(selectedVideo.classList.contains("video-block")){
     clearEmbedContainer();
     embedRecentVideo(selectedVideo.closest(".div-parent").id)
+    myNowPlayingContainer.scrollIntoView();
   }
 }
 
@@ -351,6 +353,8 @@ myResultsContainer.onclick = function (event) {
   if (videoResult.classList.contains("video-block")) {
     clearEmbedContainer();
     getEmbedVideo(videoResult.closest(".div-parent").id);
+    // window.location.href="#now-playing";
+    myNowPlayingContainer.scrollIntoView();
   }
 }
 // Implement Firebase API to allow users to chat and potentially handling log in for site
